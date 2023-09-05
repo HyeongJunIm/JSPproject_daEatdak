@@ -45,7 +45,7 @@
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
 				<property name="url"
-					value="jdbc:mysql://localhost:3306/jsp_daeatdak" />
+					value="jdbc:mysql://localhost:3306/jsp_daEatdak" />
 				<property name="username" value="root" />
 				<property name="password" value="1111" />
 			</dataSource>
@@ -56,20 +56,10 @@
 	<mappers>
 		<mapper resource="com/mybatis/mapper/MemberMapper.xml"></mapper>
 		<mapper resource="com/mybatis/mapper/AdminMapper.xml"></mapper>
-<<<<<<< HEAD
 		<mapper resource="com/mybatis/mapper/FileMapper.xml"></mapper>
 		<mapper resource="com/mybatis/mapper/GoodsMapper.xml"></mapper>
  		<mapper resource="com/mybatis/mapper/BoardMapper.xml"></mapper>
 		<mapper resource="com/mybatis/mapper/CommonMapper.xml"></mapper>
-		
-   </mappers>
-=======
-
-		<mapper resource="com/mybatis/mapper/FileMapper.xml" ></mapper>
-		<mapper resource = "com/mybatis/mapper/GoodsMapper.xml"></mapper>
-        <mapper resource = "com/mybatis/mapper/BoardMapper.xml"></mapper>
-        <mapper resource = "com/mybatis/mapper/CommonMapper.xml"></mapper>
    </mappers>
 
->>>>>>> 50f8a63762d93fbd1f4c22cef3344b070c012878
 </configuration>
