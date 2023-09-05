@@ -6,6 +6,7 @@ import java.rmi.ServerException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.daeatdak.Execute;
 import com.daeatdak.Result;
@@ -19,8 +20,11 @@ public class BoardWriteOkController implements Execute{
 			throws IOException, ServletException, ServerException {
 		BoardDTO boardDTO=new BoardDTO();
 		BoardDAO boardDAO=new BoardDAO();
+
+		
 		Integer userNum = (Integer)request.getSession().getAttribute("userNum");
-	
+		
+
 		response.setContentType("text/html;charset=UTF-8");
 		boardDTO.setBoardName(request.getParameter("boardName"));
 		System.out.println("-------------Name확인");
@@ -29,7 +33,9 @@ public class BoardWriteOkController implements Execute{
 		boardDTO.setBoardContent(request.getParameter("boardContent"));
 		System.out.println("-------------content확인");
 		String boardLockValue =request.getParameter("boardLock");
+
 		System.out.println(userNum);
+
 		boardDTO.setUserNum(userNum);
 		// 체크여부를 받아와서 문자열타입으로 저장한다 
 	    if (boardLockValue != null && boardLockValue.equals("on")) {

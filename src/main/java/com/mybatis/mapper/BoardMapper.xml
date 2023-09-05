@@ -10,6 +10,7 @@
 	<!-- 게시판 리스트에 목록 -->
 	<select id="selectAll" resultType="BoardVO"><!-- 테이블과 일치하지 않는 값이 등러가기 때문에 VO로 받는다 -->
 		select u.user_num,b.board_num,b.board_name,u.user_name,b.board_date,b.board_count,b.board_password,b.board_lock
+		,b.user_num
 		from board b join users u
 		on u.user_num =b.user_num
 		order by b.board_num desc
@@ -57,4 +58,8 @@
 	<delete id="delete" parameterType="_int">
 		delete from board where board_num = #{boardNum}
 	</delete>
+	
+	<select id ="selectMyInfo" resultType="BoardVO" parameterType="int">
+  		select user_roll,user_num from users where user_num =#{userNum}
+  </select>
 </mapper>

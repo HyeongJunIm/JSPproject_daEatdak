@@ -41,10 +41,10 @@
                     <div class="password-check-box-inner">
                         <b>비밀번호를 입력하세요.</b>
                         <form action= "/board/boardDlePasswordCheckOk.bo?bordNum=${board.getBoardNum()}" method="post">
-                        <input type="hidden" name="boardNum" value="${board.getBoardNum()}" />
+                        <input type="hidden" name="boardNum" value="${board.getBoardNum()}"  class="hiddenboard"/>
                         <input class="content-password" type="password" id="inputPassword" maxlength="4" name="boardPassword">
                         <div class="inner-btnBox">
-                            <button class="btn cancle" onclick="pagemove()">취소</button>
+                            <button class="btn cancle" onclick="pagemove()" type="button">취소</button>
                             <button class="btn admit" type="submit">확인</button>
                             <%--정말로 삭제하시겠습니까후 확인버튼 누르면 삭제 하고 리스트로 이동  --%>
                         </div>
@@ -55,9 +55,9 @@
 
         </div>
       </div>
+        <input type="hidden" value="${warningMessage}" class="warningMessage">
     </main>
     </div>
-     <input type="hidden" value="${warningMessage}" class="warningMessage">
     <div class="footer">
     	<%@ include file ="/footer.jsp" %>
     </div>
@@ -71,6 +71,7 @@ let message = $('.warningMessage').val();
   
   function pagemove(){
 	  let cancles =document.querySelector('.cancle');
+	 
 	     cancles.addEventListener("click",function(){
 	         window.location.href="http://localhost:8888/board/boardListOk.bo";
 	     })

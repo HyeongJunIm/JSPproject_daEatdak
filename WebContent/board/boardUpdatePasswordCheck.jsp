@@ -46,10 +46,10 @@
                         <b>비밀번호를 입력하세요.</b>
                         <form action= "/board/boardUpdatePasswordCheckOk.bo?boardNum=${board.getBoardNum()}" method="post">
                         	
-                        	<input type="hidden" name="boardNum" value="${board.getBoardNum()}" />
+                        	<input type="hidden" name="boardNum" value="${board.getBoardNum()}" class="hiddenboard"/>
 	                        <input class="content-password" type="password" id="inputPassword" maxlength="4" name="boardPassword"/>
 	                        <div class="inner-btnBox">
-	                            <button class="btn cancle" onclick="pagemove()">취소</button>
+	                            <button class="btn cancle" onclick="pagemove()" type="button">취소</button>
 	                            <button class="btn admit" type="submit">확인</button>
 	                        </div> 
 	                    </form>     
@@ -59,9 +59,10 @@
 
         </div>
       </div>
+      <input type="hidden" value="${warningMessage}" class="warningMessage">
     </main>
     </div>
-    <input type="hidden" value="${warningMessage}" class="warningMessage">
+    
     <div class="footer">
     	<%@ include file ="/footer.jsp" %>
     </div>
@@ -75,10 +76,11 @@ let message = $('.warningMessage').val();
   
   function pagemove(){
 	  let cancles =document.querySelector('.cancle');
+
 	     cancles.addEventListener("click",function(){
 	         window.location.href="http://localhost:8888/board/boardListOk.bo";
 	     })
-	     console.log(cancles);
+	     console.log(hiddenboards);
 	 };
 					
 	</script>

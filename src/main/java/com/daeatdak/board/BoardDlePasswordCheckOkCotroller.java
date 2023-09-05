@@ -18,11 +18,13 @@ public class BoardDlePasswordCheckOkCotroller implements Execute{
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException, ServerException {
 		System.out.println("삭제확인 메소드 실행!");
+	
+		BoardDAO boardDAO=new BoardDAO();
 		int boardNum=Integer.valueOf(request.getParameter("boardNum"));
 		System.out.println(boardNum);
-		BoardDAO boardDAO=new BoardDAO();
-		BoardVO boardVO=new BoardVO();
-		request.setAttribute(null, boardVO);
+		BoardVO boardVO=boardDAO.select(boardNum);
+//		BoardDAO boardDAO=new BoardDAO();
+//		BoardVO boardVO=new BoardVO();
 		System.out.println(boardVO);
 		System.out.println(boardVO.getBoardPassword());
 		String boardPassword=request.getParameter("boardPassword");
@@ -32,9 +34,9 @@ public class BoardDlePasswordCheckOkCotroller implements Execute{
 			System.out.println("삭제완료!");
 			request.getRequestDispatcher("/board/boardListOk.bo").forward(request, response);
 		}else if(!boardVO.getBoardPassword().equals(boardPassword)){
+			request.setAttribute("board", boardVO);
 			String warningMessage = "비밀번호가 일치하지 않습니다.";
 			request.setAttribute("warningMessage", warningMessage);
-			request.setAttribute("board", boardVO);
 			request.getRequestDispatcher("/board/boardPasswordCheckDel.jsp").forward(request, response);
 		}
 

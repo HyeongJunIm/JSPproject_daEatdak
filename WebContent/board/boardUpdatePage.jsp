@@ -38,7 +38,7 @@
            <form action="boardUpdate.bo?board=${board.getBoardNum()}" method="post"> 
 	            <div class="write-title">
 	              <input class="content-title" type="text" value="코딩 너무 재밌다" placeholder="제목을 입력하세요" maxlength="50" name="boardName">
-	              <input class="content-password" type="password" placeholder="비밀번호" maxlength="4" name="boardPassword">
+	              <input class="content-password" type="password" placeholder="비밀번호" maxlength="4" name="boardPassword" required>
 	              <div class="checkbox">
 	                <p>비공개 여부</p><input type="checkbox" name="boardLock">
 	              </div>

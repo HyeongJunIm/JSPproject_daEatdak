@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.daeatdak.board.dto.BoardDTO;
 import com.daeatdak.board.vo.BoardVO;
+import com.daeatdak.goods.dto.CartDTO;
 import com.mybatis.config.MyBatisConfig;
 
 public class BoardDAO {
@@ -62,6 +63,9 @@ public class BoardDAO {
 		sqlSession.delete("board.delete",boardNum);
 	}
 
+	public BoardVO selectMyInfo(int userNum) {
+	  return sqlSession.selectOne("board.selectMyInfo",userNum);
+	   }
 }
 
 
