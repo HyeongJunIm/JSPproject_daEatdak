@@ -16,6 +16,8 @@ public class FileDAO {
 		sqlSession.insert("file.insert", fileDTO);
 	}
 	
-	
+	public void delete(int goodsNum) {
+		sqlSession.delete("admin.GoodsFileDelete", goodsNum);
+	}
 	
 }

@@ -7,8 +7,19 @@ public class GoodsInfoListVO {
 	private String goodsName;
 	private int goodsPrice;
 	private int goodsQuantity;
+	private String goodsDetail;
 	
 	
+	public String getGoodsDetail() {
+		return goodsDetail;
+	}
+
+
+	public void setGoodsDetail(String goodsDetail) {
+		this.goodsDetail = goodsDetail;
+	}
+
+
 	public GoodsInfoListVO() {
 		;
 	}
@@ -66,12 +77,13 @@ public class GoodsInfoListVO {
 
 	@Override
 	public String toString() {
-		return "GoodsInfoListVO [goodsNumber=" + goodsNum + ", categoryName=" + categoryName + ", goodsName="
-				+ goodsName + ", goodsPrice=" + goodsPrice + ", goodsQuantity=" + goodsQuantity + "]";
+		return "GoodsInfoListVO [goodsNum=" + goodsNum + ", categoryName=" + categoryName + ", goodsName=" + goodsName
+				+ ", goodsPrice=" + goodsPrice + ", goodsQuantity=" + goodsQuantity + ", goodsDetail=" + goodsDetail
+				+ "]";
 	}
-	
-	
-	
+
+
+
 	
 	
 	

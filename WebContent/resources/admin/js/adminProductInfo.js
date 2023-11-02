@@ -100,13 +100,13 @@ function productDel() {
       }
   })
 
-    $(".upload").click(function() {
+  /*  $(".upload").click(function() {
         link = "adminProInfoUp.jsp"
         if(up) {
 		location.href = link;	
 		}
     })
-
+*/
 }
 
 $('document').ready(function(){

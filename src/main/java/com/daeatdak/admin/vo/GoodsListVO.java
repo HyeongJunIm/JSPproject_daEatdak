@@ -5,10 +5,53 @@ public class GoodsListVO {
 	private String goodsName;
 	private int goodsPrice;
 	private int goodsQuantity;
+	private String goodsDetail;
+	private int goodsNum;
+	private String filePath;
+	private String fileSystemName;
 	
-	
+	public String getFilePath() {
+		return filePath;
+	}
+
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
+
+	public String getFileSystemName() {
+		return fileSystemName;
+	}
+
+
+	public void setFileSystemName(String fileSystemName) {
+		this.fileSystemName = fileSystemName;
+	}
+
+
+	public int getGoodsNum() {
+		return goodsNum;
+	}
+
+
+	public void setGoodsNum(int goodsNum) {
+		this.goodsNum = goodsNum;
+	}
+
+
 	public GoodsListVO() {
 		;
+	}
+
+
+	public String getGoodsDetail() {
+		return goodsDetail;
+	}
+
+
+	public void setGoodsDetail(String goodsDetail) {
+		this.goodsDetail = goodsDetail;
 	}
 
 
@@ -55,8 +98,17 @@ public class GoodsListVO {
 	@Override
 	public String toString() {
 		return "GoodsListVO [categoryNum=" + categoryNum + ", goodsName=" + goodsName + ", goodsPrice=" + goodsPrice
-				+ ", goodsQuantity=" + goodsQuantity + "]";
+				+ ", goodsQuantity=" + goodsQuantity + ", goodsDetail=" + goodsDetail + ", goodsNum=" + goodsNum
+				+ ", filePath=" + filePath + ", fileSystemName=" + fileSystemName + "]";
 	}
+
+
+	
+
+	
+
+
+	
 	
 	
 }

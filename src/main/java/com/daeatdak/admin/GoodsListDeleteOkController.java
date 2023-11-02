@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.daeatdak.Execute;
 import com.daeatdak.Result;
 import com.daeatdak.admin.dao.AdminDAO;
+import com.daeatdak.admin.dao.FileDAO;
 import com.daeatdak.admin.dto.AdminDTO;
 
 public class GoodsListDeleteOkController implements Execute {
@@ -19,6 +20,7 @@ public class GoodsListDeleteOkController implements Execute {
 
 		AdminDTO adminDTO = new AdminDTO();
 		AdminDAO adminDAO = new AdminDAO();
+		FileDAO fileDAO = new FileDAO();
 		Result result = new Result();
 		
 		
@@ -28,7 +30,7 @@ public class GoodsListDeleteOkController implements Execute {
 		  
 		  System.out.println(goodsNumber + "번 상품 삭제!");
 		 
-		 
+		  fileDAO.delete(goodsNumber);
 		  adminDAO.goodsDelete(goodsNumber);
 		 
 		

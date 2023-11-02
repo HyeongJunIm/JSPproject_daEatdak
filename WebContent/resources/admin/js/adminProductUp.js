@@ -60,10 +60,10 @@ function DropFile(dropAreaId, fileListId) {
   const dropFile = new DropFile("drop-file", "files");
 
 
-  function productDel() {
+/*  function productDel() {
     $(".upload").click(function() {
         var up = confirm("수정 하시겠습니까?");
-        link = "admin_productInfo.html"
+        link = "/admin/goodsModifyOk.ad"
         if(up) {
             alert("수정되었습니다.")
             location.href = link;
@@ -72,14 +72,14 @@ function DropFile(dropAreaId, fileListId) {
 
 
 
-}
+}*/
 
-$('document').ready(function(){
+/*$('document').ready(function(){
     productDel();
 	$('.pagination li:first-child').addClass("disabled");
 	
 	});
-
+*/
 
 
 

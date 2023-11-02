@@ -65,10 +65,9 @@ public class AdminFrontController extends HttpServlet {
 			break;
 
 		case "/admin/goodsRegistOk.ad":
-			System.out.println("등록완료");
 			new GoodsRegistOkController().execute(request, response);
+			System.out.println("등록완료");
 			request.getRequestDispatcher("/admin/goodsInfoListOk.ad").forward(request, response);
-
 			break;
 
 		case "/admin/goodsInfoListOk.ad":
@@ -87,20 +86,19 @@ public class AdminFrontController extends HttpServlet {
 
 			break;
 		case "/admin/goodsModify.ad":
-		
+			response.setContentType("text/html; charset=utf-8");
 			new GoodsInfoRegistController().execute(request, response);
 			request.getRequestDispatcher("/admin/adminProductModify.jsp").forward(request, response);
 
 			break;
 
 		case "/admin/goodsModifyOk.ad":
+			response.setContentType("text/html; charset=utf-8");
+			new GoodsUpdateOkController().execute(request, response);
 			System.out.println("수정완료");
-//			new GoodsUpdateOkController().execute(request, response);
-
 			request.getRequestDispatcher("/admin/goodsInfoListOk.ad").forward(request, response);
 
 			break;
-
 		}
 
 		if (result != null) {

@@ -6,16 +6,16 @@
 <mapper namespace="admin">
 	
    <insert id = "GoodsRegist" parameterType="AdminDTO">
-         insert into goods(category_num, goods_name,  goods_price,  goods_quantity)
-         value(#{categoryNum}, #{goodsName}, #{goodsPrice}, #{goodsQuantity} )
+         insert into goods(category_num, goods_name,  goods_price,  goods_quantity, goods_detail)
+         value(#{categoryNum}, #{goodsName}, #{goodsPrice}, #{goodsQuantity}, #{goodsDetail} )
     
    </insert>
    
-   <insert id="GoodsImg" parameterType="AdminDTO">
- 		insert into image(goods_img , goods_detail_img1, goods_detail_img2, goods_detail_img3, goods_detail_img4, goods_detail_img5 )  	
- 		value (#{goodsImg}, #{goodsDetailImg1}, #{goodsDetailImg2}, #{goodsDetailImg3}, #{goodsDetailImg4}, #{goodsDetailImg5})	
+  <!--  <insert id="GoodsImg" >
+ 		insert into image(goods_detail_img1, goods_detail_img2, goods_detail_img3, goods_detail_img4, goods_detail_img5 )  	
+ 		value (#{goodsNum}, #{goodsDetailImg1}, #{goodsDetailImg2}, #{goodsDetailImg3}, #{goodsDetailImg4}, #{goodsDetailImg5})	
  
-   </insert>
+   </insert> -->
  
   
 <select id="getSequence" resultType="_int">
@@ -32,7 +32,7 @@
 	 	SELECT g.goods_num, c.category_name, g.goods_name ,g.goods_price, g.goods_quantity
 		FROM goods g
 		JOIN category c ON g.category_num = c.category_num
-		order by g.goods_num;
+		order by g.goods_num
 	 
 	 </select>
 	 
@@ -43,21 +43,28 @@
 	 
 	 </delete>
 	 
+	 <delete id="GoodsFileDelete" parameterType="_int">
+	 	DELETE
+	 	from file
+	 	where goods_num = #{goodsNum}
+	 
+	 </delete>
  	  <select id = "GoodsRegistInfo" parameterType="_int" resultType="GoodsListVO">
-         select c.category_num, g.goods_name,  g.goods_price,  g.goods_quantity
+      select g.goods_num, c.category_num, g.goods_name,  g.goods_price,  g.goods_quantity, g.goods_detail, f.file_path, f.file_system_name 
          from goods g
          join category c on g.category_num = c.category_num
-		 where goods_num = #{goodsNum}   
-		  
-   </select> 
+         join file f on g.goods_num = f.goods_num 
+		 where g.goods_num = #{goodsNum}
+		
+   	 </select> 
 	 
 	 
-	 <update id="GoodsInfoUpdate" parameterType="GoodsListVO">
-	 		UPDATE goods set category_num = #{categoryNum}, goods_price=#{goodsPrice}, goods_quantity = #{goodsQuantity} 
+	 <update id="GoodsInfoUpdate">
+	 		UPDATE goods set category_num = #{categoryNum}, goods_price=#{goodsPrice}, goods_quantity = #{goodsQuantity}, goods_detail=#{goodsDetail} 
 	 		where goods_num = #{goodsNum}
 	 	
 	 </update> 
 	 
-   
+
      
 </mapper>

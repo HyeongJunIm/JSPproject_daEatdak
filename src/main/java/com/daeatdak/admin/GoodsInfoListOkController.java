@@ -27,7 +27,7 @@ public class GoodsInfoListOkController implements Execute {
 		request.setAttribute("GoodsInfoList", adminDAO.goodsInfoList());
 
 		
-		
+	
 		return null;
 		
 		

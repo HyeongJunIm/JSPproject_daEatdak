@@ -4,11 +4,22 @@ public class FileDTO {
 	private String filePath;
 	private String fileSystemName;
 	private String fileOriginalName;
-	private int goodsNum;
+    private int goodsNum;
+
 
 	public FileDTO() {
 		;
 	}
+
+	public int getGoodsNum() {
+		return goodsNum;
+	}
+
+	public void setGoodsNum(int goodsNum) {
+		this.goodsNum = goodsNum;
+	}
+
+	
 
 	public String getFilePath() {
 		return filePath;
@@ -45,8 +56,12 @@ public class FileDTO {
 	@Override
 	public String toString() {
 		return "FileDTO [filePath=" + filePath + ", fileSystemName=" + fileSystemName + ", fileOriginalName="
-				+ fileOriginalName + ", goodsNumber=" + goodsNum + "]";
+				+ fileOriginalName + ", goodsNum=" + goodsNum + "]";
 	}
+
+
+
+
 
 	
 	

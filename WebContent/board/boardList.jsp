@@ -76,7 +76,7 @@
 			              				<div class="num">
 			              					<c:out value="${board.getBoardNum()}"></c:out>
 			              				</div>
-<<<<<<< HEAD
+
 			              				<div class="title">
 			              					<c:choose>
 			              					
@@ -92,12 +92,7 @@
 			              						</c:when>
 			              					</c:choose>
 			              					
-=======
-			              				<div class="title">1
-			              					<a href="${pageContext.request.contextPath}/board/boardPasswordCheckConfig.bo?boardNum=${board.getBoardNum()}">
-			              						비공개 글 입니다.
-			              					</a>
->>>>>>> 19d2ef5a476a29e57a79fe72c23655ac0308896c
+
 			              				</div>
 			              				<div class="witer">
 			              				<c:choose>

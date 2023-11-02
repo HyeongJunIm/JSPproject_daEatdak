@@ -42,7 +42,7 @@ public class AdminDAO {
 
 	
 	public void goodsInfoUpdate(AdminDTO adminDTO) {
-		sqlSession.update("admin.goodsInfoUpdate", adminDTO);
+		sqlSession.update("admin.GoodsInfoUpdate", adminDTO);
 	}
 
 }

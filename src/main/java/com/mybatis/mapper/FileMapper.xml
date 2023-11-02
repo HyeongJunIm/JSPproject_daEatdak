@@ -3,9 +3,10 @@
 
 <mapper namespace="file">
 
+	
 	<insert id="insert" parameterType="FileDTO">
 		insert file(file_path, file_system_name, file_original_name, goods_num)
-		values(#{filePath}, #{fileSystemName}, #{fileOriginalName}, #{goodsNumber})
+		values(#{filePath}, #{fileSystemName}, #{fileOriginalName}, #{goodsNum})
 	</insert>
 
 

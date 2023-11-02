@@ -1,7 +1,6 @@
 package com.daeatdak.admin.dto;
 
 public class AdminDTO {
-	private int categoryNum;
 	public int getCategoryNum() {
 		return categoryNum;
 	}
@@ -9,14 +8,22 @@ public class AdminDTO {
 	public void setCategoryNum(int categoryNum) {
 		this.categoryNum = categoryNum;
 	}
-
+	private int categoryNum;
 	private int goodsNum;
 	private String goodsName;
 	private int goodsQuantity;
-	private int goodsCategory;
+//	private int goodsCategory;
 	private int goodsPrice;
 	private int saleCount;
-	private int imageNum;
+	private String goodsDetail;
+
+	public String getGoodsDetail() {
+		return goodsDetail;
+	}
+
+	public void setGoodsDetail(String goodsDetail) {
+		this.goodsDetail = goodsDetail;
+	}
 
 	public AdminDTO() {
 		;
@@ -46,13 +53,13 @@ public class AdminDTO {
 		this.goodsQuantity = goodsQuantity;
 	}
 
-	public int getGoodsCategory() {
-		return goodsCategory;
-	}
-
-	public void setGoodsCategory(int goodsCategory) {
-		this.goodsCategory = goodsCategory;
-	}
+//	public int getGoodsCategory() {
+//		return goodsCategory;
+//	}
+//
+//	public void setGoodsCategory(int goodsCategory) {
+//		this.goodsCategory = goodsCategory;
+//	}
 
 	public int getGoodsPrice() {
 		return goodsPrice;
@@ -70,19 +77,15 @@ public class AdminDTO {
 		this.saleCount = saleCount;
 	}
 
-	public int getImageNum() {
-		return imageNum;
-	}
-
-	public void setImageNum(int imageNum) {
-		this.imageNum = imageNum;
-	}
-
 	@Override
 	public String toString() {
-		return "AdminDTO [goodsNum=" + goodsNum + ", goodsName=" + goodsName + ", goodsQuantity=" + goodsQuantity
-				+ ", goodsCategory=" + goodsCategory + ", goodsPrice=" + goodsPrice + ", saleCount=" + saleCount
-				+ ", imageNum=" + imageNum + "]";
+		return "AdminDTO [categoryNum=" + categoryNum + ", goodsNum=" + goodsNum + ", goodsName=" + goodsName
+				+ ", goodsQuantity=" + goodsQuantity + ", goodsPrice=" + goodsPrice + ", saleCount=" + saleCount
+				+ ", goodsDetail=" + goodsDetail + "]";
 	}
+
+
+
+
 
 }
