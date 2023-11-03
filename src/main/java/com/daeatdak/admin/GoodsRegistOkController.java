@@ -18,71 +18,64 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class GoodsRegistOkController implements Execute {
 
-   @Override
-   public Result execute(HttpServletRequest request, HttpServletResponse response)
-         throws IOException, ServerException {
- 
-      String dynamicUR="";
-   
-      
-      
-      String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/upload");
-      final int FILE_SIZE = 1024 * 1024 * 5; // 5MB
+	@Override
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServerException {
 
-      MultipartRequest multipartRequest = new MultipartRequest(request, UPLOAD_PATH, FILE_SIZE, "utf-8", new DefaultFileRenamePolicy());
 
-      System.out.println(UPLOAD_PATH);
-      
-      FileDAO fileDAO = new FileDAO();
-      FileDTO fileDTO = new FileDTO();
-      AdminDTO adminDTO = new AdminDTO();
-      AdminDAO adminDAO = new AdminDAO();
-      int adminGoodsNumber=0;
-  
-      Result result = new Result();
+		String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/upload");
+		final int FILE_SIZE = 1024 * 1024 * 5; // 5MB
 
-      
-   
-      adminDTO.setCategoryNum(Integer.valueOf( multipartRequest.getParameter("goodsCategory")));
-      adminDTO.setGoodsName(multipartRequest.getParameter("goodsName"));
-      adminDTO.setGoodsQuantity(Integer.valueOf( multipartRequest.getParameter("goodsQuantity")));
-      adminDTO.setGoodsPrice(Integer.valueOf(multipartRequest.getParameter("goodsPrice")));
-//      adminDTO.setGoodsCategory(Integer.valueOf(multipartRequest.getParameter("goodsCategory")));
-      adminDTO.setGoodsDetail(multipartRequest.getParameter("goodsDetail"));
+		MultipartRequest multipartRequest = new MultipartRequest(request, UPLOAD_PATH, FILE_SIZE, "utf-8",
+				new DefaultFileRenamePolicy());
 
-      adminDAO.goodsRegist(adminDTO);
-      adminGoodsNumber = adminDAO.getSequence();
+		System.out.println(UPLOAD_PATH);
 
-      
-      
-      
-   
+		FileDAO fileDAO = new FileDAO();
+		FileDTO fileDTO = new FileDTO();
+		AdminDTO adminDTO = new AdminDTO();
+		AdminDAO adminDAO = new AdminDAO();
+		int adminGoodsNumber = 0;
 
-      
-      Enumeration<String> fileNames = multipartRequest.getFileNames();
-      while(fileNames.hasMoreElements()) {
-         String filePath = UPLOAD_PATH;
-         String name = fileNames.nextElement();
-         String fileSystemName = multipartRequest.getFilesystemName(name);
-         String fileOriginalName = multipartRequest.getOriginalFileName(name);
-         if(fileSystemName == null) {continue;}
-         fileDTO.setFilePath(filePath);
-         fileDTO.setFileSystemName(fileSystemName);
-         fileDTO.setFileOriginalName(fileOriginalName);
-         fileDTO.setGoodsNumber(adminGoodsNumber);
-         
-         System.out.println(fileDTO);
+		Result result = new Result();
+		
+		
+		
+		
 
-         fileDAO.insert(fileDTO);
-         
+		adminDTO.setCategoryNum(Integer.valueOf(multipartRequest.getParameter("goodsCategory")));
+		adminDTO.setGoodsName(multipartRequest.getParameter("goodsName"));
+		adminDTO.setGoodsQuantity(Integer.valueOf(multipartRequest.getParameter("goodsQuantity")));
+		adminDTO.setGoodsPrice(Integer.valueOf(multipartRequest.getParameter("goodsPrice")));
 
-      }
-      
+		adminDAO.goodsRegist(adminDTO);
+		adminGoodsNumber = adminDAO.getSequence();
 
-      
-      result.setRedirect(true);
-      result.setPath("/admin/adminProductInfo.jsp");
-      
-      return result;   }
+		
+		Enumeration fileNames = multipartRequest.getFileNames();
+		while (fileNames.hasMoreElements()) {
+			String filePath = UPLOAD_PATH;
+			String name = (String)fileNames.nextElement();
+			String fileSystemName = multipartRequest.getFilesystemName(name);
+			String fileOriginalName = multipartRequest.getOriginalFileName(name);
+			
+			fileDTO.setFilePath(filePath);
+			fileDTO.setFileSystemName(fileSystemName);
+			fileDTO.setFileOriginalName(fileOriginalName);
+			fileDTO.setGoodsNumber(adminGoodsNumber);
+			fileDAO.insert(fileDTO);
+			
+		
+			
+
+		}
+		
+	
+
+		result.setRedirect(true);
+		result.setPath("/admin/adminProductInfo.jsp");
+
+		return result;
+	}
 
 }

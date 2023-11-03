@@ -93,20 +93,84 @@
 									</div>
 									<hr>
 								</div>
+								
 							</div>
 						</div>
 					</div>
-						<div>
+				<!-- 		<div>
 							<textarea cols="30" rows="5" name="goodsDetail" maxlength="500" placeholder="상품 설명">
 							</textarea>
 						
-						</div>
+						</div> -->
 
+					</div>
+					<div>
+					<!-- 	<div class="img-List">
+						
+							<div>
+								<div style="width: 900px; height: 300px;">
+									<div class="imgs_container" id="imgs_container1"></div>
+								</div>
+								<div class="btnLeft">
+									<input type="file" id="images" accept="image/*" name="goodsDetailImg1"
+										onchange="setThumbnail2(event);" style="width: 180px;" />
+									<button class="imgsDel">삭제</button>
+								</div>
+							</div>
+
+							<div>
+								<div style="width: 900px; height: 300px;">
+									<div class="imgs_container" id="imgs_container2"></div>
+								</div>
+								<div class="btnLeft">
+									<input type="file" id="images" accept="image/*" name="goodsDetailImg2"
+										onchange="setThumbnail3(event);" style="width: 180px;" />
+									<button class="imgsDel">삭제</button>
+								</div>
+							</div>
+
+							<div>
+								<div style="width: 900px; height: 300px;">
+									<div class="imgs_container" id="imgs_container3"></div>
+								</div>
+								<div class="btnLeft">
+									<input type="file" id="images" accept="image/*" name="goodsDetailImg3"
+										onchange="setThumbnail4(event);" style="width: 180px;" />
+									<button class="imgsDel">삭제</button>
+								</div>
+							</div>
+
+							<div>
+								<div style="width: 900px; height: 300px;">
+									<div class="imgs_container" id="imgs_container4"></div>
+								</div>
+								<div class="btnLeft">
+									<input type="file" id="images" accept="image/*" name="goodsDetailImg4"
+										onchange="setThumbnail5(event);" style="width: 180px;" />
+									<button class="imgsDel">삭제</button>
+								</div>
+							</div>
+
+							<div>
+								<div style="width: 900px; height: 300px;">
+									<div class="imgs_container" id="imgs_container5"></div>
+								</div>
+								<div class="btnLeft">
+									<input type="file" id="images" accept="image/*" name="goodsDetailImg5"
+										onchange="setThumbnail6(event);" style="width: 180px;" />
+									<button class="imgsDel">삭제</button>
+								</div>
+							</div>
+
+
+
+						</div> -->
 						<div class="productRegist-btn">
 							<button class="ins" style="width: 80px; height: 40px;">등록하기</button>
 						</div>
 
 					</div>
+					
 
 
 			

@@ -5,10 +5,10 @@
   		select * from goods where category_num = #{categoryNum}
   </select>
   <select id ="selectImage" resultType="GoodsImageDTO" parameterType="_int">
-  		select * from image
+  		select * from file
   </select>
     <select id ="selectImageByGoodsNum" resultType="GoodsImageDTO" parameterType="_int">
-  		select * from image where goods_num = #{goodsNum}
+  		select * from file where goods_num = #{goodsNum}
   </select>
   <select id ="selectGoodsNum" resultType="GoodsDTO" parameterType="_int">
   		select * from goods where goods_num = #{goodsNum}
@@ -43,4 +43,35 @@
 		INNER JOIN goods g ON ci.goods_num = g.goods_num
 		WHERE ci.cart_num = #{cartNum};
    </select>
+   
+   
+   <select id="goodsListByCategory" parameterType="_int" resultType="GoodsListByCategoryVO">
+   
+   		select g.goods_num, c.category_num,c.category_name, g.goods_name,  g.goods_price,  g.goods_quantity, f.file_path, f.file_system_name 
+         from goods g
+         join category c on g.category_num = c.category_num
+         join file f on g.goods_num  = f.goods_num  
+		 where c.category_num = #{categoryNum}
+   
+   </select>
+   
+   <select id="searchGoodsList" resultType="GoodsListBySearchVO">
+   
+   		 select g.goods_num, c.category_num,c.category_name, g.goods_name,  g.goods_price,  g.goods_quantity, f.file_path, f.file_system_name 
+         from goods g
+         join category c 
+         on g.category_num = c.category_num
+         join file f 
+         on g.goods_num  = f.goods_num  
+ 		 where g.goods_name Like CONCAT('%', #{keyword}, '%')
+   </select>
+  
+   
+   
+   
+   
+   
+   
+   
+   
 </mapper>

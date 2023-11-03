@@ -35,6 +35,8 @@ public class AdminDAO {
 		sqlSession.delete("admin.GoodsListDelete", goodsNum);
 
 	}
+	
+	
 
 	public List<GoodsListVO> goodsInfoRegist(int goodsNum) {
 		return sqlSession.selectList("admin.GoodsRegistInfo", goodsNum);
@@ -44,5 +46,6 @@ public class AdminDAO {
 	public void goodsInfoUpdate(AdminDTO adminDTO) {
 		sqlSession.update("admin.GoodsInfoUpdate", adminDTO);
 	}
+	
 
 }

@@ -43,6 +43,8 @@
 							<hr style="width: 90%;">
 							<form action="/admin/goodsModifyOk.ad" method="post"
 								enctype="multipart/form-data">
+								<input type="hidden" value="<%=request.getAttribute("goodsNum") %>" name="goodsNum" />
+								
 								<div class="Rege">
 									<c:forEach var ="goods" items ="${list}"> 
 										
@@ -114,14 +116,74 @@
 									</div>
 
 
-									<div>
+									<%-- <div>
 										<input type="text" name="goodsDetail" 
 										value="<%=request.getAttribute("goodsDetail")%>" placeholder="상품설명을 적어주세요."/>
  															
-										<input type="hidden" value="<%=request.getAttribute("goodsNum") %>" name="goodsNum" />
 										
 						
-									</div>
+									</div> --%>
+									
+										<div class="img-List">
+						
+							<div>
+								<div style="width: 900px; height: 300px;">
+									<div class="imgs_container" id="imgs_container1"></div>
+								</div>
+								<div class="btnLeft">
+									<input type="file" id="images" accept="image/*" name="goodsDetailImg1"
+										onchange="setThumbnail2(event);" style="width: 180px;" />
+									<button class="imgsDel">삭제</button>
+								</div>
+							</div>
+
+							<div>
+								<div style="width: 900px; height: 300px;">
+									<div class="imgs_container" id="imgs_container2"></div>
+								</div>
+								<div class="btnLeft">
+									<input type="file" id="images" accept="image/*" name="goodsDetailImg2"
+										onchange="setThumbnail3(event);" style="width: 180px;" />
+									<button class="imgsDel">삭제</button>
+								</div>
+							</div>
+
+							<div>
+								<div style="width: 900px; height: 300px;">
+									<div class="imgs_container" id="imgs_container3"></div>
+								</div>
+								<div class="btnLeft">
+									<input type="file" id="images" accept="image/*" name="goodsDetailImg3"
+										onchange="setThumbnail4(event);" style="width: 180px;" />
+									<button class="imgsDel">삭제</button>
+								</div>
+							</div>
+
+							<div>
+								<div style="width: 900px; height: 300px;">
+									<div class="imgs_container" id="imgs_container4"></div>
+								</div>
+								<div class="btnLeft">
+									<input type="file" id="images" accept="image/*" name="goodsDetailImg4"
+										onchange="setThumbnail5(event);" style="width: 180px;" />
+									<button class="imgsDel">삭제</button>
+								</div>
+							</div>
+
+							<div>
+								<div style="width: 900px; height: 300px;">
+									<div class="imgs_container" id="imgs_container5"></div>
+								</div>
+								<div class="btnLeft">
+									<input type="file" id="images" accept="image/*" name="goodsDetailImg5"
+										onchange="setThumbnail6(event);" style="width: 180px;" />
+									<button class="imgsDel">삭제</button>
+								</div>
+							</div>
+
+
+
+						</div>
 										<div class="productRegist-btn">
 											<button class="upload" style="width: 80px; height: 40px;"
 											>수정하기</button>
@@ -138,6 +200,157 @@
 				</main>
 
 
+	<script>
+	function setThumbnail2(event) {
+		var reader = new FileReader();
+		reader.onload = function(event) {
+			var img = document.createElement("img");
+			img.setAttribute("src", event.target.result);
+			document.querySelector("#imgs_container1").appendChild(img);
+		};
+		reader.readAsDataURL(event.target.files[0]);
+	}
+
+	function setThumbnail3(event) {
+		var reader = new FileReader();
+		reader.onload = function(event) {
+			var img = document.createElement("img");
+			img.setAttribute("src", event.target.result);
+			document.querySelector("#imgs_container2").appendChild(img);
+		};
+		reader.readAsDataURL(event.target.files[0]);
+	}
+
+	function setThumbnail4(event) {
+		var reader = new FileReader();
+		reader.onload = function(event) {
+			var img = document.createElement("img");
+			img.setAttribute("src", event.target.result);
+			document.querySelector("#imgs_container3").appendChild(img);
+		};
+		reader.readAsDataURL(event.target.files[0]);
+	}
+
+	function setThumbnail5(event) {
+		var reader = new FileReader();
+		reader.onload = function(event) {
+			var img = document.createElement("img");
+			img.setAttribute("src", event.target.result);
+			document.querySelector("#imgs_container4").appendChild(img);
+		};
+		reader.readAsDataURL(event.target.files[0]);
+	}
+
+	function setThumbnail6(event) {
+		var reader = new FileReader();
+		reader.onload = function(event) {
+			var img = document.createElement("img");
+			img.setAttribute("src", event.target.result);
+			document.querySelector("#imgs_container5").appendChild(img);
+		};
+		reader.readAsDataURL(event.target.files[0]);
+	}
+
 	
+</script>
+
+
+<script type="text/javascript">
+function DropFile(dropAreaId, fileListId) {
+	  let dropArea = document.getElementById(dropAreaId);
+	  let fileList = document.getElementById(fileListId);
+
+	  function preventDefaults(e) {
+	    e.preventDefault();
+	    e.stopPropagation();
+	  }
+
+	  function highlight(e) {
+	    preventDefaults(e);
+	    dropArea.classList.add("highlight");
+	  }
+
+	  function unhighlight(e) {
+	    preventDefaults(e);
+	    dropArea.classList.remove("highlight");
+	  }
+
+	  function handleDrop(e) {
+	    unhighlight(e);
+	    let dt = e.dataTransfer;
+	    let files = dt.files;
+
+	    handleFiles(files);
+
+	    const fileList = document.getElementById(fileListId);
+	    if (fileList) {
+	      fileList.scrollTo({ top: fileList.scrollHeight });
+	    }
+	  }
+
+	  function handleFiles(files) {
+	    files = [...files];
+	    files.forEach(previewFile);
+	  }
+
+	  function previewFile(file) {
+	    console.log(file);
+	    renderFile(file);
+	  }
+
+	  function renderFile(file) {
+	    let reader = new FileReader();
+	    reader.readAsDataURL(file);
+	    reader.onloadend = function () {
+	      let img = dropArea.getElementsByClassName("preview");
+	      img.src = reader.result;
+	      img.style.display = "block";
+	    };
+	  }
+
+
+	  return {
+	    handleFiles
+	  };
+
+	}
+
+	const dropFile = new DropFile("drop-file", "files");
+
+
+	function productDel() {
+	  $(".ins").click(function() {
+	      var up = confirm("등록 하시겠습니까?");
+	      link = "admin_productInfo.html"
+	      if(up) {
+	          alert("등록되었습니다.")
+	          location.href = link;
+	      }
+	  })
+	  
+	  $(".imgDel").click(function() {
+	    $("#image_container img").css("display","none");
+	  });
+	  
+	  $(".imgsDel").click(function() {
+	    $(".imgs_container img").css("display","none");
+	  });
+
+
+
+	}
+
+	$('document').ready(function(){
+	  productDel();
+	$('.pagination li:first-child').addClass("disabled");
+
+	});
+
+
+
+
+
+</script>
 </body>
+
 </html>

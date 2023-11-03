@@ -6,8 +6,8 @@
 <mapper namespace="admin">
 	
    <insert id = "GoodsRegist" parameterType="AdminDTO">
-         insert into goods(category_num, goods_name,  goods_price,  goods_quantity, goods_detail)
-         value(#{categoryNum}, #{goodsName}, #{goodsPrice}, #{goodsQuantity}, #{goodsDetail} )
+         insert into goods(category_num, goods_name,  goods_price,  goods_quantity)
+         value(#{categoryNum}, #{goodsName}, #{goodsPrice}, #{goodsQuantity} )
     
    </insert>
    
@@ -49,21 +49,34 @@
 	 	where goods_num = #{goodsNum}
 	 
 	 </delete>
+	 
+	 <delete id="goodsDetailFileDelete" parameterType="_int">
+	 	delete
+	 	from goods_detail_image
+	 	where goods_num = #{goodsNum}
+	 
+	 
+	 </delete>
+	 
  	  <select id = "GoodsRegistInfo" parameterType="_int" resultType="GoodsListVO">
-      select g.goods_num, c.category_num, g.goods_name,  g.goods_price,  g.goods_quantity, g.goods_detail, f.file_path, f.file_system_name 
+      select g.goods_num, c.category_num, g.goods_name,  g.goods_price,  g.goods_quantity, f.file_path, f.file_system_name
          from goods g
          join category c on g.category_num = c.category_num
-         join file f on g.goods_num = f.goods_num 
+         join file f on f.goods_num = g.goods_num
 		 where g.goods_num = #{goodsNum}
 		
    	 </select> 
 	 
 	 
 	 <update id="GoodsInfoUpdate">
-	 		UPDATE goods set category_num = #{categoryNum}, goods_price=#{goodsPrice}, goods_quantity = #{goodsQuantity}, goods_detail=#{goodsDetail} 
+	 		UPDATE goods set category_num = #{categoryNum}, goods_price=#{goodsPrice}, goods_quantity = #{goodsQuantity} 
 	 		where goods_num = #{goodsNum}
 	 	
 	 </update> 
+	 
+	 
+	 
+	
 	 
 
      

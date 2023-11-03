@@ -3,10 +3,13 @@
 <mapper namespace="common">
 
 
-   <select id = "selectAll" resultType="CommonDTO">
-   		SELECT goods_name, goods_price 
-        FROM goods
-        ORDER BY sale_count DESC
+   <select id = "selectAll" resultType="GoodsListVO">
+   		select g.goods_num, c.category_num, c.category_name, g.goods_name,  g.goods_price,  g.goods_quantity, f.file_path, f.file_system_name 
+         from goods g
+         join category c on g.category_num = c.category_num
+         join file f on g.goods_num = f.goods_num
+		 order by goods_num desc
+		
    </select>
    
    <select id = "selectAll1" resultType="CommonDTO">
@@ -32,9 +35,29 @@
    </select>
    
     <select id ="selectImage" resultType="GoodsImageDTO" parameterType="_int">
-        select * from image
+        select * from file
   </select>
    
+     <select id="selectMainGoods" parameterType="_int" resultType="GoodsListVO">
      
+    select g.goods_num, c.category_num, g.goods_name,  g.goods_price,  g.goods_quantity, f.file_path, f.file_system_name
+         from goods g
+         join category c on g.category_num = c.category_num
+         join file f on f.goods_num = g.goods_num
+		 where c.category_num = #{categoryNum}
+     
+     </select>
+     
+    <select id="selectMainGoodsPic" parameterType="_int" resultType="FileDTO">
+    
+     	select f.file_path, f.file_system_name, g.goods_num
+		from file f
+		join goods g 
+		on g.goods_num =f.goods_num
+		where g.goods_num = #{goodsNum}
+     
+     
+     </select> 
+    
      
 </mapper>

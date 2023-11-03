@@ -8,6 +8,17 @@
 		insert file(file_path, file_system_name, file_original_name, goods_num)
 		values(#{filePath}, #{fileSystemName}, #{fileOriginalName}, #{goodsNum})
 	</insert>
+  
+<select id="getSequence" resultType="_int">
+		select LAST_INSERT_ID()
+</select>
 
+
+	<insert id="insertDetailImage" parameterType="GoodsDetailImageDTO">
+	
+		insert into goods_detail_image(goods_detail_image_path, goods_detail_image_original_name, goods_detail_image_system_name, goods_num)
+		values (#{goodsDetailImagePath}, #{goodsDetailImageOriginalName}, #{goodsDetailImageSystemName}, #{goodsNum})
+	</insert>
+  
 
 </mapper>

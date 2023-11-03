@@ -159,7 +159,7 @@
     border-radius: 5px;
     width: 315px;
     height: 25px;
-    
+    padding-left:10px
 }
 
 .search-container button {

@@ -1,29 +1,15 @@
 package com.daeatdak.admin.dto;
 
 public class AdminDTO {
-	public int getCategoryNum() {
-		return categoryNum;
-	}
-
-	public void setCategoryNum(int categoryNum) {
-		this.categoryNum = categoryNum;
-	}
+	
 	private int categoryNum;
 	private int goodsNum;
 	private String goodsName;
 	private int goodsQuantity;
-//	private int goodsCategory;
 	private int goodsPrice;
 	private int saleCount;
-	private String goodsDetail;
+	
 
-	public String getGoodsDetail() {
-		return goodsDetail;
-	}
-
-	public void setGoodsDetail(String goodsDetail) {
-		this.goodsDetail = goodsDetail;
-	}
 
 	public AdminDTO() {
 		;
@@ -35,6 +21,14 @@ public class AdminDTO {
 
 	public void setGoodsNum(int goodsNum) {
 		this.goodsNum = goodsNum;
+	}
+	
+	public int getCategoryNum() {
+		return categoryNum;
+	}
+
+	public void setCategoryNum(int categoryNum) {
+		this.categoryNum = categoryNum;
 	}
 
 	public String getGoodsName() {
@@ -52,14 +46,6 @@ public class AdminDTO {
 	public void setGoodsQuantity(int goodsQuantity) {
 		this.goodsQuantity = goodsQuantity;
 	}
-
-//	public int getGoodsCategory() {
-//		return goodsCategory;
-//	}
-//
-//	public void setGoodsCategory(int goodsCategory) {
-//		this.goodsCategory = goodsCategory;
-//	}
 
 	public int getGoodsPrice() {
 		return goodsPrice;
@@ -80,10 +66,14 @@ public class AdminDTO {
 	@Override
 	public String toString() {
 		return "AdminDTO [categoryNum=" + categoryNum + ", goodsNum=" + goodsNum + ", goodsName=" + goodsName
-				+ ", goodsQuantity=" + goodsQuantity + ", goodsPrice=" + goodsPrice + ", saleCount=" + saleCount
-				+ ", goodsDetail=" + goodsDetail + "]";
+				+ ", goodsQuantity=" + goodsQuantity + ", goodsPrice=" + goodsPrice + ", saleCount=" + saleCount + "]";
 	}
 
+
+
+
+ 
+	
 
 
 

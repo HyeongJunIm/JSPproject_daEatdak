@@ -44,18 +44,15 @@ public class GoodsInfoRegistController implements Execute {
 			String goodsName = d.getGoodsName();
 			int goodsPrice = d.getGoodsPrice();
 			int goodsQuantity = d.getGoodsQuantity();
-			String goodsDetail = d.getGoodsDetail();
 			int goodsNum = d.getGoodsNum();
-			String filePath = d.getFilePath();
-			String fileName = d.getFileSystemName();
 			
-			String realPath = filePath + fileName;
+//			  String filePath = d.getFilePath(); 
+//			  String fileName = d.getFileSystemName();
+					
 			System.out.println(categoryNum );
 			System.out.println(goodsName );
 			System.out.println(goodsPrice );
 			System.out.println(goodsQuantity );
-			System.out.println(goodsDetail );
-			System.out.println(realPath);
 			
 			
 			request.setAttribute("goodsNum", goodsNum);
@@ -63,8 +60,6 @@ public class GoodsInfoRegistController implements Execute {
 			request.setAttribute("goodsName", goodsName);
 			request.setAttribute("goodsPrice", goodsPrice);
 			request.setAttribute("goodsQuantity", goodsQuantity);
-			request.setAttribute("goodsDetail", goodsDetail);
-			request.setAttribute("filePath", realPath);
 			
 		}
 

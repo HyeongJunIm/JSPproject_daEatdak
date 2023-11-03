@@ -1,36 +1,53 @@
 package com.daeatdak.common;
 
 import java.io.IOException;
+import java.rmi.ServerException;
 import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.daeatdak.Execute;
+import com.daeatdak.Result;
+import com.daeatdak.admin.dto.FileDTO;
+import com.daeatdak.admin.vo.GoodsListVO;
 import com.daeatdak.common.dao.CommonDAO;
-import com.daeatdak.common.dto.CommonDTO;
 
-public class MainFullMenuController {
+public class MainFullMenuController implements Execute {
 
-    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        CommonDAO commonDAO = new CommonDAO();
+	@Override
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException, ServerException {
+	     CommonDAO commonDAO = new CommonDAO();
 
-        // CommonDAO의 selectAll 메서드를 호출하여 상품 목록을 가져옴
-        // (CommonVO는 상품 정보를 담는 클래스로 가정)
-        List<CommonDTO> goodsList = commonDAO.selectAll();
-        System.out.println("test1");
-        
+	        List<GoodsListVO> goodsChickenVo = commonDAO.selectMainGoods(1);       
+	        List<GoodsListVO> goodsPorkVo = commonDAO.selectMainGoods(2);
+	        List<GoodsListVO> goodsMeatVo = commonDAO.selectMainGoods(3);      
+	        List<GoodsListVO> goodsConVo = commonDAO.selectMainGoods(4);
+	        
+	        
+	        
+	        List<GoodsListVO> recentlyGoods = commonDAO.selectAll();
+	        
+	        
+	        //다잇닭
+	        request.setAttribute("goodsChickenVo", goodsChickenVo);
+	        //다잇돈
+	        request.setAttribute("goodsPorkVo", goodsPorkVo);
+	        //다잇소
+	        request.setAttribute("goodsMeatVo", goodsMeatVo);
+	        //다잇다
+	        request.setAttribute("goodsConVo", goodsConVo);
 
-        // request에 상품 목록을 속성으로 설정
-        request.setAttribute("goodsList", goodsList);
-        request.setAttribute("category1", commonDAO.selectAll1());
-        request.setAttribute("category2", commonDAO.selectAll2());
-        request.setAttribute("category3", commonDAO.selectAll3());
-        request.setAttribute("category4", commonDAO.selectAll4());
-        
-        request.setAttribute("goodsImages", commonDAO.selectImage());
-        
-        // index.jsp로 포워딩
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
-    }
+	        
+	        
+	        
+	        request.setAttribute("recentlyGoods", recentlyGoods);
+	        
+	       
+		return null;
+	}
+
+   
 }

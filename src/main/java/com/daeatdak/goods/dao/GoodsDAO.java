@@ -10,6 +10,9 @@ import com.daeatdak.goods.dto.CartDTO;
 import com.daeatdak.goods.dto.CartItemDTO;
 import com.daeatdak.goods.dto.GoodsDTO;
 import com.daeatdak.goods.dto.GoodsImageDTO;
+import com.daeatdak.goods.dto.GoodsSearchDTO;
+import com.daeatdak.goods.vo.GoodsListByCategoryVO;
+import com.daeatdak.goods.vo.GoodsListBySearchVO;
 import com.mybatis.config.MyBatisConfig;
 
 public class GoodsDAO {
@@ -28,13 +31,13 @@ public class GoodsDAO {
 		   return sqlSession.selectList("goods.selectImage");
 	   }
 	   
-	   public GoodsImageDTO selectImageByGoodsNum(int goodsNum){
-		   return sqlSession.selectOne("goods.selectImageByGoodsNum",goodsNum);
-	   }
+//	   public GoodsImageDTO selectImageByGoodsNum(int goodsNum){
+//		   return sqlSession.selectOne("goods.selectImageByGoodsNum",goodsNum);
+//	   }
 	   
-	   public GoodsDTO selectGoodsNum(int goodsNum){
-		   return sqlSession.selectOne("goods.selectGoodsNum", goodsNum);
-	   }
+//	   public GoodsDTO selectGoodsNum(int goodsNum){
+//		   return sqlSession.selectOne("goods.selectGoodsNum", goodsNum);
+//	   }
 	   public CartDTO selectCart(int userNum) {
 		   return sqlSession.selectOne("goods.selectCart",userNum);
 	   }
@@ -61,4 +64,14 @@ public class GoodsDAO {
 	   public List<GoodsDTO> selectCartItems(int CartNum){
 		      return sqlSession.selectList("goods.selectCartItems", CartNum);
 		   }
+	   
+	   
+	   public List<GoodsListByCategoryVO> goodsListByCategory(int categoryNum){
+		   
+		   return sqlSession.selectList("goods.goodsListByCategory",categoryNum);
+	   }
+	   
+	   public List<GoodsListBySearchVO> searchGoodsList(GoodsSearchDTO goodsSearchDTO){
+		   return sqlSession.selectList("goods.searchGoodsList", goodsSearchDTO);
+	   }
 }

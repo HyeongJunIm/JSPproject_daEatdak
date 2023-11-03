@@ -2,6 +2,7 @@ package com.daeatdak.goods;
 
 import java.io.IOException;
 import java.rmi.ServerException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.daeatdak.Execute;
 import com.daeatdak.Result;
 import com.daeatdak.goods.dao.GoodsDAO;
+import com.daeatdak.goods.vo.GoodsListByCategoryVO;
 
 public class GoodsListController implements Execute{
 
@@ -17,10 +19,13 @@ public class GoodsListController implements Execute{
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServerException {
 	      GoodsDAO goodsDAO = new GoodsDAO();
-	      int categoryNum = Integer.parseInt(request.getParameter("categoryNum")) ;
+	      int categoryNum = Integer.valueOf(request.getParameter("categoryNum")) ;
 	      
-	      request.setAttribute("goodsList", goodsDAO.selectCategory(categoryNum));	      
-	      request.setAttribute("goodsImages", goodsDAO.selectImage());
+ 
+	      List<GoodsListByCategoryVO> goodsListByCategory = goodsDAO.goodsListByCategory(categoryNum);
+	      
+	      request.setAttribute("categoryNum", categoryNum);
+	      request.setAttribute("goodsListByCategory", goodsListByCategory);
 	      
 	      System.out.println("cateNum : " + categoryNum);
 	      try {

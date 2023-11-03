@@ -46,6 +46,7 @@ public class CommonFrontController extends HttpServlet {
 		switch(target) {
 		case "/common/MainFullMenu.co":
 			new MainFullMenuController().execute(request, response);
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 			break;
 		
 		}

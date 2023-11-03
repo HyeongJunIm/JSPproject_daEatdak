@@ -30,6 +30,7 @@ public class GoodsListDeleteOkController implements Execute {
 		  
 		  System.out.println(goodsNumber + "번 상품 삭제!");
 		 
+		  fileDAO.goodsDetailFileDelete(goodsNumber);
 		  fileDAO.delete(goodsNumber);
 		  adminDAO.goodsDelete(goodsNumber);
 		 

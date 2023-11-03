@@ -15,12 +15,20 @@ function pagination() {
     $li.slice(start, end).show();
     current_page = page;
     $(window).scrollTop(0);
+    
+    if(total_num_li==0){
+		$('.prev').hide();
+		$('.next').hide();
+	}else {
+		$('.prev').show();
+		$('.next').show();
+	}
   }
 
   function updatePage() {
     showPage(current_page);
+    
   }
-
   for (var i = 1; i <= num_pages; i++) {
     $('.page-box').append("<li class='page-num'><a href='javascript:void(0);'>" + i + "</a></li>");
   }

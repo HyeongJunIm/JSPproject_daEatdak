@@ -23,7 +23,9 @@
 			alias="GoodsImageDTO" />
 		<typeAlias type="com.daeatdak.board.dto.BoardDTO"
 			alias="BoardDTO" />
-				
+		<typeAlias type="com.daeatdak.admin.dto.GoodsDetailImageDTO"
+			alias="GoodsDetailImageDTO" />
+
 		<typeAlias type="com.daeatdak.board.vo.BoardVO"
 			alias="BoardVO" />
 		<typeAlias type="com.daeatdak.user.vo.UserVO" alias="UserVO" />
@@ -37,7 +39,15 @@
 			alias="GoodsListVO" />
 		<typeAlias type="com.daeatdak.admin.vo.GoodsInfoListVO"
 			alias="GoodsInfoListVO" />
-			
+		<typeAlias type="com.daeatdak.goods.dto.GoodsSearchDTO"
+			alias="GoodsSearchDTO" />
+		<typeAlias
+			type="com.daeatdak.goods.vo.GoodsListByCategoryVO"
+			alias="GoodsListByCategoryVO" />
+		<typeAlias type="com.daeatdak.goods.vo.GoodsListBySearchVO"
+			alias="GoodsListBySearchVO" />
+
+
 	</typeAliases>
 
 
@@ -61,8 +71,8 @@
 		<mapper resource="com/mybatis/mapper/AdminMapper.xml"></mapper>
 		<mapper resource="com/mybatis/mapper/FileMapper.xml"></mapper>
 		<mapper resource="com/mybatis/mapper/GoodsMapper.xml"></mapper>
- 		<mapper resource="com/mybatis/mapper/BoardMapper.xml"></mapper>
+		<mapper resource="com/mybatis/mapper/BoardMapper.xml"></mapper>
 		<mapper resource="com/mybatis/mapper/CommonMapper.xml"></mapper>
-   </mappers>
+	</mappers>
 
 </configuration>

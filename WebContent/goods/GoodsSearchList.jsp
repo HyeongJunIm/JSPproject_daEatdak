@@ -29,7 +29,7 @@
             <div class="product-chicken-page">
                 <div class="page-top">
                 <!-- 카테고리별 page-name 출력-->
-                 <c:choose >
+                 <%-- <c:choose >
                 	<c:when test="${categoryNum == 1 }" >
                    		<h2 class="page-name">닭고기</h2>
                    	</c:when>
@@ -42,50 +42,51 @@
                    	<c:when test="${categoryNum == 4 }" >
                    		<h2 class="page-name">간편식&dot;음료</h2>
                    	</c:when>
-                </c:choose> 
+                </c:choose>  --%>
                 </div>
                 <div class="product-inter">
                     <ul class="product-list">
-						<c:forEach var ="goods" items ="${goodsListByCategory}"> 
+						<c:forEach var ="searchResult" items ="${searchList}"> 
                         <li class="list-info">             
 
                             <div class="list">
                                 <figure class="img">
-                                    <a href="${pageContext.request.contextPath}/goods/goodsBuy.go?goodsNum=${goods.goodsNum}">
-                                        <img class="chicken" src="${pageContext.request.contextPath}/upload/${goods.fileSystemName}" alt="상품이미지">
+                                    <a href="${pageContext.request.contextPath}/goods/goodsBuy.go?goodsNum=${searchResult.goodsNum}">
+                                        <img class="chicken" src="${pageContext.request.contextPath}/upload/${searchResult.fileSystemName}" alt="상품이미지">
                                     </a>
                                 </figure>
                                 <div class="list-name-top">
                                 	<c:choose >
-                						<c:when test="${goods.categoryNum == 1 }" >
+                						<c:when test="${searchResult.categoryNum == 1 }" >
                    							  <span>다있닭</span> 
                    						</c:when>
-										<c:when test="${goods.categoryNum == 2 }" >
+										<c:when test="${searchResult.categoryNum == 2 }" >
                    							  <span>다있돈</span> 
                  					  	</c:when>
-                  					 	<c:when test="${goods.categoryNum == 3 }" >
+                  					 	<c:when test="${searchResult.categoryNum == 3 }" >
                    							  <span>다있소</span> 
                   					 	</c:when>
-                 					  	<c:when test="${goods.categoryNum == 4 }" >
+                 					  	<c:when test="${searchResult.categoryNum == 4 }" >
                    							  <span>다있닷</span> 
                   					 	</c:when>
                						 </c:choose>
                                 </div>
                                 <div class="list-name-bottom">
-                                    ${goods.goodsName}
+                                    ${searchResult.goodsName}
                                 </div>
-                                <span class="list-price">${goods.goodsPrice} 원</span>
+                                <span class="list-price">${searchResult.goodsPrice} 원</span>
                             </div>
                         </li>
                         </c:forEach>
                         </ul>
              
-                    <div class="pageing">
-                        <div class="arrow prev" onclick="">&lt;</div>
-                        <ul class="page-box">
-                        </ul>
-                        <div class="arrow next">&gt;</div>
-                    </div>
+	                    <div class="pageing">
+	                        <div class="arrow prev" onclick="">&lt;</div>
+	                        <ul class="page-box">
+	                        </ul>
+	                        <div class="arrow next">&gt;</div>
+	                    </div>
+	                  
                 </div>
             </div>
         </main>

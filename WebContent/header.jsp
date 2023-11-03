@@ -21,7 +21,7 @@
 
             <!-- 로고-->
             <div class="header-logo-container">
-                <a href='${pageContext.request.contextPath}/common/MainFullMenu.co' method="get">
+                    <a href='/common/MainFullMenu.co'>
                     <h4>다잇닭</h4>
                 
                  <p>daEatdak</p> </a>
@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/member/signupSelect.jsp">
+                        <a href="${pageContext.request.contextPath}/user/join.me">
                             <span class="material-symbols-outlined">
                                 person_add
                             </span>
@@ -163,16 +163,20 @@
                 </nav>
             </div>
             
-            
-            
+           
            
             <!-- 검색 부분 -->
             <div class="search-container">
-                <form action="/MyServlet" method="get"> 
+                <form action="/goods/searchList.go" method="get"> 
                     <fieldset style="border: none;">
                         <legend style="display: none;">검색창</legend>
                         <label for="search">
-                            <input type="text" id="search" value=""/>
+                            <select name="cate" id="goods-name" class="cate" style="display:none;">
+                        		              <option value="goodsName">제품명</option>
+                        		
+                             </select>
+   							 <input type="text" id="search" value="" name="keyword" placeholder="상품명을 입력해주세요!"/>
+                            
                         </label>
                         <button type="submit">
                             <span class="material-symbols-outlined">
@@ -188,7 +192,7 @@
          <div class="nav-fix-menu-container" style="display: none;" >
             <div class="nav-fix-menu-content">
                 <div class="nav-fix-title">
-                    <a href='${pageContext.request.contextPath}/index.jsp' method="get">
+                    <a href='/common/MainFullMenu.co'>
                     <h4>다잇닭</h4>
                  </a>
                 </div>
@@ -206,11 +210,15 @@
                     </nav>
                 </div>
                 <div class="search-container fix-search">
-                    <form action=""> 
+                    <form action="/goods/searchList.go"> 
                         <fieldset style="border: none;">
                             <legend style="display: none;">검색창</legend>
                             <label for="search">
-                                <input type="text" id="search" />
+                                 <select name="cate" id="goods-name" class="cate" style="display:none;">
+                        		              <option value="goodsName">제품명</option>
+                        		
+                             </select>
+   							 <input type="text" id="search" value="" name="keyword" placeholder="상품명을 입력해주세요!"/>
                             </label>
                             <button type="submit">
                                 <span class="material-symbols-outlined">

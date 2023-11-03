@@ -19,8 +19,8 @@ public class GoodsBuyController implements Execute{
 		GoodsDAO goodsDAO = new GoodsDAO();
 		int goodsNum = Integer.parseInt(request.getParameter("goodsNum"));
 		
-		request.setAttribute("goodsList", goodsDAO.selectGoodsNum(goodsNum));
-		request.setAttribute("goodsImages", goodsDAO.selectImageByGoodsNum(goodsNum));
+//		request.setAttribute("goodsList", goodsDAO.selectGoodsNum(goodsNum));
+//		request.setAttribute("goodsImages", goodsDAO.selectImageByGoodsNum(goodsNum));
 		try {
 			request.getRequestDispatcher("/goods/GoodsBuyPage.jsp").forward(request, response);
 		} catch (ServletException e) {
