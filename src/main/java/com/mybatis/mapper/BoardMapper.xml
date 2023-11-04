@@ -2,64 +2,139 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="board">
-<!-- 글쓰기 데이터에 입려하는 쿼리문 -->
+	<!-- 글쓰기 데이터에 입려하는 쿼리문 -->
 	<insert id="write" parameterType="BoardDTO">
-		insert into board (board_name,board_password,board_lock,board_content,user_num)
+		insert into board
+		(board_name,board_password,board_lock,board_content,user_num)
 		value(#{boardName},#{boardPassword},#{boardLock},#{boardContent},#{userNum})
 	</insert>
 	<!-- 게시판 리스트에 목록 -->
-	<select id="selectAll" resultType="BoardVO"><!-- 테이블과 일치하지 않는 값이 등러가기 때문에 VO로 받는다 -->
-		select u.user_num,b.board_num,b.board_name,u.user_name,b.board_date,b.board_count,b.board_password,b.board_lock
+	<select id="selectAll" resultType="BoardVO"><!-- 테이블과 일치하지 않는 값이 등러가기 때문에 VO로 
+			받는다 -->
+		select
+		u.user_num,b.board_num,b.board_name,u.user_name,b.board_date,b.board_count,b.board_password,b.board_lock
 		,b.user_num
 		from board b join users u
 		on u.user_num =b.user_num
-		order by b.board_num desc
+		order by
+		b.board_num desc
 	</select>
 	<!-- 조회수를 증가시는 쿼리문 -->
 	<select id="select" parameterType="_int" resultType="BoardVO">
-		select u.user_num,b.board_num, b.board_name,u.user_name,b.board_date,b.board_count, b.board_content,b.board_password
+		select
+		u.user_num,b.board_num,
+		b.board_name,u.user_name,b.board_date,b.board_count,
+		b.board_content,b.board_password
 		from board b join users u
-		on b.board_num = #{boardNum} and u.user_num=b.user_num	
+		on
+		b.board_num = #{boardNum} and u.user_num=b.user_num
 	</select>
-	
+
 	<update id="updateViewCount" parameterType="_int">
-		update board set board_count = board_count +1
+		update board set
+		board_count = board_count +1
 		where board_num =#{boardNum}
 	</update>
-	<!-- 비밀번호 확인을 위한 쿼리문-->
-	<select id="selectPassword" parameterType="_int" resultType="BoardVO"><!-- 테이블과 일치하지 않는 값이 등러가기 때문에 VO로 받는다 -->
-		select u.user_num,b.board_num, b.board_name,u.user_name,b.board_date,b.board_count, b.board_content,b.board_password
+	<!-- 비밀번호 확인을 위한 쿼리문 -->
+	<select id="selectPassword" parameterType="_int"
+		resultType="BoardVO"><!-- 테이블과 일치하지 않는 값이 등러가기 때문에 VO로 받는다 -->
+		select u.user_num,b.board_num,
+		b.board_name,u.user_name,b.board_date,b.board_count,
+		b.board_content,b.board_password
 		,b.board_lock
 		from users u join board b
-		on b.board_num = #{boardNum} and u.user_num=b.user_num	
+		on b.board_num = #{boardNum} and u.user_num=b.user_num
 	</select>
-	
-	<!-- 비밀번호 확인 후 게시판으로 이동  -->
-	<select id="privateContent" parameterType="_int" resultType="BoardVO">
-		select u.user_num,b.board_num, b.board_name,u.user_name,b.board_date,b.board_count, b.board_content,b.board_password
+
+	<!-- 비밀번호 확인 후 게시판으로 이동 -->
+	<select id="privateContent" parameterType="_int"
+		resultType="BoardVO">
+		select u.user_num,b.board_num,
+		b.board_name,u.user_name,b.board_date,b.board_count,
+		b.board_content,b.board_password
 		,b.board_lock
 		from board b join users u
-		on b.board_num = #{boardNum} and u.user_num=b.user_num	
+		on b.board_num = #{boardNum} and u.user_num=b.user_num
 	</select>
-	<!-- 게스글을 수정하는 쿼리문  -->
+	<!-- 게스글을 수정하는 쿼리문 -->
 	<update id="update" parameterType="BoardVO">
-	update board
-	set board_name = #{boardName}, board_content = #{boardContent},board_password = #{boardPassword} ,board_lock =#{boardLock} 
-	where board_num = #{boardNum} 
+		update board
+		set board_name = #{boardName}, board_content =
+		#{boardContent},board_password = #{boardPassword} ,board_lock
+		=#{boardLock}
+		where board_num = #{boardNum}
 	</update>
-	
-	<select id="updateContent" parameterType="_int" resultType="BoardVO">
-		select u.user_num,b.board_num, b.board_name,u.user_name,b.board_date,b.board_count, b.board_content,b.board_password
+
+	<select id="updateContent" parameterType="_int"
+		resultType="BoardVO">
+		select u.user_num,b.board_num,
+		b.board_name,u.user_name,b.board_date,b.board_count,
+		b.board_content,b.board_password
 		,b.board_lock
 		from board b join users u
-		on b.board_num = #{boardNum} and u.user_num=b.user_num	
+		on b.board_num = #{boardNum} and u.user_num=b.user_num
 	</select>
 	<!-- 게시물 삭제하는 쿼리 -->
 	<delete id="delete" parameterType="_int">
-		delete from board where board_num = #{boardNum}
+		delete from board where
+		board_num = #{boardNum}
 	</delete>
-	
-	<select id ="selectMyInfo" resultType="BoardVO" parameterType="int">
-  		select user_roll,user_num from users where user_num =#{userNum}
-  </select>
+
+	<select id="selectMyInfo" resultType="BoardVO"
+		parameterType="int">
+		select user_roll,user_num from users where user_num =#{userNum}
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--댓글 등록 -->
+	<insert id="insertReply">
+
+		insert into comments(user_num, board_num, comment_content )
+		values (#{userNum}, #{boardNum},#{commentContent} )
+
+	</insert>
+
+	<select id="selectAllReply" resultType="BoardReplyDTO">
+		select comment_num, board_num, u.user_num, u.user_name, comment_content
+		from comments c join users u on u.user_num = c.user_num
+		where board_num = #{boardNum}
+
+
+	</select>
+
+
+	<!--댓글 삭제 -->
+	<delete id="deleteReply">
+
+		delete from comments
+		where comment_num = #{commentNum}
+
+	</delete>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </mapper>

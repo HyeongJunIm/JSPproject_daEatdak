@@ -24,9 +24,16 @@
 	<select id="checkId" parameterType="String" resultType="_int">
  		
  			select count(user_num) from users
- 			where user_Email = #{userEmail}
+ 			where user_Email = #{userEmail} or user_phone=#{userPhone}
  		
  		</select>
+ 		
+ 	<select id="checkPhone" parameterType="String" resultType="_int">
+ 	
+ 			select count(user_num) from users
+ 			where user_phone=#{userPhone}
+ 	
+ 	</select>	 
  		
  		
  	<select id="getUserEmailByName" parameterType="UserDTO" resultType="UserDTO">

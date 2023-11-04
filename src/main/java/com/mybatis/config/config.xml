@@ -23,11 +23,15 @@
 			alias="GoodsImageDTO" />
 		<typeAlias type="com.daeatdak.board.dto.BoardDTO"
 			alias="BoardDTO" />
+		<typeAlias type="com.daeatdak.board.dto.BoardReplyDTO"
+			alias="BoardReplyDTO" />
 		<typeAlias type="com.daeatdak.admin.dto.GoodsDetailImageDTO"
 			alias="GoodsDetailImageDTO" />
 
 		<typeAlias type="com.daeatdak.board.vo.BoardVO"
 			alias="BoardVO" />
+		<typeAlias type="com.daeatdak.board.vo.BoardReplyListVO"
+			alias="BoardReplyListVO" />
 		<typeAlias type="com.daeatdak.user.vo.UserVO" alias="UserVO" />
 		<typeAlias type="com.daeatdak.common.dto.CommonDTO"
 			alias="CommonDTO" />
@@ -46,7 +50,10 @@
 			alias="GoodsListByCategoryVO" />
 		<typeAlias type="com.daeatdak.goods.vo.GoodsListBySearchVO"
 			alias="GoodsListBySearchVO" />
-
+		<typeAlias type="com.daeatdak.goods.vo.GoodsDetailVO"
+			alias="GoodsDetailVO" />
+		<typeAlias type="com.daeatdak.goods.vo.GoodsDetailInfoVO"
+			alias="GoodsDetailInfoVO" />
 
 	</typeAliases>
 

@@ -106,13 +106,14 @@
     width: 550px;
     height: 50px;
     display: flex;
+    
     align-items: center;
     justify-content: space-around;
 }
 
 .nav-ul-container ul li a {
     color: black;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .nav-ul-container ul li a h4 {
@@ -120,7 +121,7 @@
     font-family: 'IBM Plex Sans KR', sans-serif;
     font-family: 'Single Day', cursive; */
     /* font-family: 'ONE-Mobile-POP';     */
-    font-family: 'MaplestoryOTFBold';
+    font-family: 'GmarketSansMedium';
 
 
 }
@@ -146,7 +147,7 @@
     display: flex;
     justify-content: end;
     align-items: center;
-    padding-right: 15px;
+    padding-right: 0px;
 }
 
 .search-container fieldset {
@@ -208,9 +209,10 @@
 }
 
 .nav-fix-menu ul {
-    margin-left: 20px;
+    margin-left: 40px;
     width: 350px;
     display: flex;
+    align-items:center;
     justify-content: space-between;
     
 }
@@ -223,7 +225,7 @@
 
 .nav-fix-menu a {
    
-    font-size: 18px;
+    font-size: 15px;
     color:black
 }
 
@@ -231,7 +233,7 @@
     /* font-family: 'Gamja Flower', cursive;
     font-family: 'IBM Plex Sans KR', sans-serif;
     font-family: 'Single Day', cursive; */
-    font-family: 'MaplestoryOTFBold';
+    font-family: 'GmarketSansMedium';
 
 }
 

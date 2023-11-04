@@ -7,9 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.daeatdak.board.dto.BoardDTO;
-import com.daeatdak.board.vo.BoardVO;
-
 /**
  * Servlet implementation class example
  */
@@ -47,7 +44,7 @@ public class BoardFrontController extends HttpServlet {
 	}
 
 	
-	public void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doProcess(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
 		
 		String target=request.getRequestURI().substring(request.getContextPath().length());
 //		request.getRequestURI().substring(request.getContextPath().length());
@@ -110,7 +107,19 @@ public class BoardFrontController extends HttpServlet {
 		case "/board/boardDlePasswordCheckOk.bo" :
 			System.out.println(" 삭제하기 비밀번호 완료!");
 			new BoardDlePasswordCheckOkCotroller().execute(request, response);
-			break;		
+			break;	
+			
+		case "/board/boardReplyOk.bo":
+			System.out.println("댓글 정보 가져오기");
+
+			new BoardReplyOkController().execute(request, response);
+			System.out.println("댓글 정보 가져오기 성공");
+			break;
+		case "/board/getBoardReply.bo":
+			new BoardReplyListController().execute(request, response);
+			System.out.println("댓글 넘기기 성공");
+			break;
+			
 		}
 	}
 	

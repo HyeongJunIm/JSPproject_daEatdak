@@ -11,13 +11,13 @@
 	href="${pageContext.request.contextPath}/resources/common/css/common.css"
 	rel="stylesheet" type="text/css" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/member/css/login.css"
+	href="${pageContext.request.contextPath}/resources/user/css/login.css"
 	rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" type="image/x-icon"
 	href="${pageContext.request.contextPath}/resources/common/img/logoPic.png" />
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/member/js/loginJS.js"></script>
 
@@ -50,7 +50,7 @@
 				<div class="login-container">
 					<div class="login-area">
 						<div class="login-greeting">
-							<strong class="txt">안녕하세요 : ) <br> 다잇닭 입니다
+							<strong class="txt">안녕하세요 : ) <br> <span class="logoTitle">다잇닭 </span> 입니다
 							</strong>
 						</div>
 
@@ -61,20 +61,26 @@
 							<div class="input-group">
 								<div class="input-text">
 									<input type="text" id="userEmail" name="userEmail"
-										placeholder="유저명!!" maxlength="100"> <label
-										class="nameNull" style="display: none;">유저명을 입력하세요.</label> <input
+										placeholder="이메일" maxlength="100"> 
+									<input
 										type="password" id="userPassword" name="userPassword"
-										placeholder="비밀번호" maxlength="100"> <label
-										class="pwNull" style="display: none">패스워드를 입력하세요.</label>
+										placeholder="비밀번호" maxlength="100"> 
+										
+										<label
+										class="nameNull" style="display: none;">이메일을 입력해주세요.</label> 
+										<label
+										class="pwNull" style="display: none">비밀번호를 입력해주세요.
+										
+										</label>
 									<c:choose>
 										<c:when test="${loginFailed}">
-											<label class="loginX" style="color: red;">아이디 혹은
+											<label class="loginX" style="color: red;">이메일 혹은
 												비밀번호가 틀렸습니다.</label>
 										</c:when>
 										<c:otherwise>
-											<label class="loginX" style="display: none">아이디 혹은
-												비밀번호가 틀렸습니다.</label>
-										</c:otherwise>
+											<label class="loginX" style="display: none">
+											</label>
+										</c:otherwise> 
 									</c:choose>
 								</div>
 							</div>
@@ -89,19 +95,10 @@
 							<button type="button"
 								onclick="location.href='/user/findUserEmail.me'  ">아이디
 								찾기</button>
+											<button type="button"
+								onclick="location.href='/user/join.me'">회원가입</button>
 						</div>
-						<div class="button-kakaologin">
-							<button type="button"
-								onclick="location.href='/login/html/kakaologin.html' ">
-								<img
-									src="${pageContext.request.contextPath}/resources/member/img/kakao_login.png"
-									alt="">
-							</button>
-						</div>
-						<div class="button-signup">
-							<button type="button"
-								onclick="location.href='/user/signUpSelect.me'">회원가입</button>
-						</div>
+						
 					</div>
 				</div>
 			</main>

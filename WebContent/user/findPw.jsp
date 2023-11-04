@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +18,10 @@
 	href="${pageContext.request.contextPath}/resources/common/img/logoPic.png" />
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>비밀번호 찾기</title>
 </head>
 <body>
 	<div class="side-banner-container">
@@ -50,16 +52,26 @@
 							<strong class="txt">비밀번호 찾기</strong>
 						</div>
 						<form id="findpw_form" name="findpw_form"
-							action="/user/findUserPasswordOk.me" method="post">
+							action="findUserPasswordOk.me" method="post" onsubmit='return aclick();'>
 							<div class="input-group">
 								<div class="input-text">
-									<input type="text" placeholder="이메일 입력" name="userEmail" maxlength="100">
-									<input type="text" placeholder="이름 입력" name="userName" maxlength="100">
-									<input type="text" placeholder="휴대폰 번호 입력" name="userPhone" maxlength="100">
+									<input type="text" placeholder="이메일 입력" name="userEmail" id="userEmail" maxlength="100">
+									<input type="text" placeholder="이름 입력" name="userName" id="userName" maxlength="100">
+									<input type="tel" placeholder="휴대폰 번호 입력 ( - 제외)" name="userPhone" id="userPhone" maxlength="11">
+									<c:choose>
+									<c:when test="${findFailed}">
+									<label>
+											입력하신 정보를 다시 확인해주세요. 일치하는 정보가 존재하지 않습니다.
+									</label>
+									</c:when>
+									<c:otherwise>
+									<label></label>
+									</c:otherwise>
+									</c:choose>
 								</div>
 							</div>
 							<div class="button-submit">
-								<button>확인</button>
+								<button class="submit-btn" >확인</button>
 							</div>
 							<div class="login-back">
 								<button type="button"
@@ -93,5 +105,9 @@
 		<!--상대경로로 각 페이지마다 맞게 작성-->
 	</div>
 
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+<script src="${pageContext.request.contextPath}/resources/user/js/findPw.js" ></script>
 </body>
 </html>

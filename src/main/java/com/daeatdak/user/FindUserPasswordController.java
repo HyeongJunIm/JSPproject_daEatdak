@@ -37,10 +37,15 @@ public class FindUserPasswordController implements Execute {
 
 		
 		if(userDTO == null) {
-			response.sendRedirect("/user/findUserPassword.me");
+			request.setAttribute("findFailed", true);
+            request.getRequestDispatcher("/user/findPw.jsp").forward(request, response);
 		}else {
 			request.setAttribute("userName", userName);
 			request.setAttribute("userPassword", userDTO.getUserPassword());
+			request.setAttribute("userEmail",userEmail);
+			
+	
+
 			request.getRequestDispatcher("/user/password.jsp").forward(request, response);
 		}
 		

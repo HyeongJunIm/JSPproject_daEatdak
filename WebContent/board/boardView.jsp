@@ -13,7 +13,9 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/common/css/common.css" rel="stylesheet" type="text/css" />
 	<link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/common/img/logoPic.png" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.0.js"
+	integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+	crossorigin="anonymous"></script>	
 	<script src="${pageContext.request.contextPath}/resources/board/js/boardView.js" defer></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/board/css/boardView.css" rel="stylesheet" type="text/css" />
  </head>
@@ -72,6 +74,10 @@
               		</c:if>
             
               </div>
+              <input type="hidden" value="${board.userNum} " name="userNum" class="userNum"/>
+              <input type="hidden" value="${board.boardNum} " name="boardNum" class="boardNum"/>
+              
+              
               <div class="comment-container">
                 <div class="comment-title">댓글</div>
 
@@ -83,7 +89,7 @@
                     <a href="#" class="comment-del-btn">삭제</a>
                   </div>
                 </div>
-                <div class="comment-content">
+          <!--       <div class="comment-content">
                   <div class="admin-name">관리자2</div>
                   <div class="admin-comment">답변내용이 들어갑니다</div>
                   <div class="comment-btn-container">
@@ -107,10 +113,14 @@
                     <a href="#" class="comment-del-btn">삭제</a>
                   </div>
                 </div>
-
+ -->
               <div class="comment-write">
-                <textarea rows="3" cols="120" placeholder="댓글을입력하세요"></textarea>
-                <a href="#" class="comment-write-btn">댓글 등록</a>
+               			 <c:if test="${sessionScope.userRoll ==1}">
+              
+                <textarea rows="3" cols="120" placeholder="댓글을입력하세요" name="replyBox" class="replyBox"></textarea>
+                <button class="comment-write-btn" type="button">댓글 등록</button>
+                              </c:if>
+                
               </div>
               </div>
             </div>

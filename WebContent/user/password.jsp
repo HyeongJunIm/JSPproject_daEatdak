@@ -50,7 +50,7 @@
 
                         <dt><h3><%=request.getAttribute("userName")%>님 환영합니다.</h3></dt>
                         <dd>검색된 정보를 보여드릴게요!</dd>
-                        <dd><%=request.getAttribute("userName")%>님 비밀번호 : <span><%=request.getAttribute("userPassword")%></span> </dd>
+                        <dd><%=request.getAttribute("userEmail")%>계정 비밀번호 : <span><%=request.getAttribute("userPassword")%></span> </dd>
                     </dl>
                 </div>
                 <div class="user-info-result-btn">

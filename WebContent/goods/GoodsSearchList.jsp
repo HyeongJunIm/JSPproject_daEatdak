@@ -29,20 +29,16 @@
             <div class="product-chicken-page">
                 <div class="page-top">
                 <!-- 카테고리별 page-name 출력-->
-                 <%-- <c:choose >
-                	<c:when test="${categoryNum == 1 }" >
-                   		<h2 class="page-name">닭고기</h2>
-                   	</c:when>
-					<c:when test="${categoryNum == 2 }" >
-                   		<h2 class="page-name">돼지고기</h2>
-                   	</c:when>
-                   	<c:when test="${categoryNum == 3 }" >
-                   		<h2 class="page-name">소고기</h2>
-                   	</c:when>
-                   	<c:when test="${categoryNum == 4 }" >
-                   		<h2 class="page-name">간편식&dot;음료</h2>
-                   	</c:when>
-                </c:choose>  --%>
+                	<c:choose>
+                		<c:when test="${keyword=='' || keyword==null }">
+                		<h2 class="page-name">모든 상품을 불러왔어요!</h2>
+                		</c:when>
+                		<c:when test="${keyword !=null}">
+                		    <h2 class="page-name">${keyword} 검색결과 </h2>
+                		</c:when>
+                	</c:choose>
+                	
+                  
                 </div>
                 <div class="product-inter">
                     <ul class="product-list">
@@ -78,6 +74,23 @@
                             </div>
                         </li>
                         </c:forEach>
+                                           <c:choose>
+                       
+                         <c:when test="${empty searchList }" >
+                         <li></li>
+                         <li>
+                        	<div>
+                        		<ul>
+                        		<li><img src="" alt="결과없음"/></li>
+                        		<li>${keyword}에 관한 검색 결과가 없습니다.<li>
+                        		<li><a href="${pageContext.request.contextPath}/goods/goodsList.go?categoryNum=1">상품리스트 페이지로 돌아가기</a></li>
+                        		</ul>
+                        	</div>
+                        </li>
+                         <li></li>
+                        
+                        </c:when>
+                        </c:choose>
                         </ul>
              
 	                    <div class="pageing">

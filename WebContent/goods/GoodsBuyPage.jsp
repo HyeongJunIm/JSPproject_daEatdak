@@ -30,23 +30,23 @@
                     <div class="product-info-top">
                         <div class="product-info-top-left">
                             <figure class="product-img">
-                                <img src="${pageContext.request.contextPath}/${goodsImages.getGoodsImg()}">
+                                <img src="${pageContext.request.contextPath}/upload/${goodsDetailInfo.fileSystemName}">
                             </figure>
                         </div>
                         <div class="product-info-top-right">
                             <div class="product-name">
                                 <div class="title">
                                 <c:choose>
-                                	<c:when test="${goodsList.getCategoryNum()==1 }"><h1>[다잇닭]</h1></c:when>
-                                	<c:when test="${goodsList.getCategoryNum()==2 }"><h1>[다잇돈]</h1></c:when>
-                                	<c:when test="${goodsList.getCategoryNum()==3 }"><h1>[다잇소]</h1></c:when>
-                                	<c:when test="${goodsList.getCategoryNum()==4 }"><h1>[다잇닷]</h1></c:when>
+                                	<c:when test="${goodsDetailInfo.categoryNum==1 }"><h1>[다잇닭]</h1></c:when>
+                                	<c:when test="${goodsDetailInfo.categoryNum==2 }"><h1>[다잇돈]</h1></c:when>
+                                	<c:when test="${goodsDetailInfo.categoryNum==3 }"><h1>[다잇소]</h1></c:when>
+                                	<c:when test="${goodsDetailInfo.categoryNum==4 }"><h1>[다잇닷]</h1></c:when>
                                 </c:choose>
-                                    <h1>${goodsList.getGoodsName()}</h1>
+                                    <h1>${goodsDetailInfo.goodsName}</h1>
                                 </div>
                                 <div class="price">
                                     <span>판매가</span>
-                                    <span>${goodsList.getGoodsPrice()}원</span>
+                                    <span>${goodsDetailInfo.goodsPrice}원</span>
                                 </div>
                             </div>    
                             <div class="product-name-detil">
@@ -134,20 +134,11 @@
                         <p>상품정보</p>
                     
                         <div class="product_deteil_info">
-                            	<img src="${pageContext.request.contextPath}/${goodsImages.getGoodsDetailImg1()}">
-                            <c:if test ="${not empty goodsImages.getGoodsDetailImg2() }">
-                            	<img src="${pageContext.request.contextPath}/${goodsImages.getGoodsDetailImg2()}">
-                            </c:if>
-                            <c:if test ="${not empty goodsImages.getGoodsDetailImg3() }">
-                            	<img src="${pageContext.request.contextPath}/${goodsImages.getGoodsDetailImg3()}">
-                            </c:if>
-                            <c:if test ="${not empty goodsImages.getGoodsDetailImg4() }">
-                            	<img src="${pageContext.request.contextPath}/${goodsImages.getGoodsDetailImg4()}">
-                            </c:if>
-                            <c:if test ="${not empty goodsImages.getGoodsDetailImg5() }">
-                            	<img src="${pageContext.request.contextPath}/${goodsImages.getGoodsDetailImg5()}">
-                            </c:if>
-
+                        	<c:forEach var="image" items="${goodsDetail }">
+ 
+                            	<img src="${pageContext.request.contextPath}/upload/${image.goodsDetailImageSystemName}">
+   
+							</c:forEach>
                         </div>
                     </div>
                     <div class="deteil_more">
@@ -173,7 +164,7 @@
     });
 
     function addToCart() {
-        var goodsNum = "${goodsList.getGoodsNum()}";
+        var goodsNum = "${goodsDetailInfo.goodsNum}";
         var url = "${pageContext.request.contextPath}/goods/toCart.go";
         
         // AJAX 요청

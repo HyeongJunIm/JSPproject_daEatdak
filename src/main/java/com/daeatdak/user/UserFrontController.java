@@ -72,10 +72,8 @@ public class UserFrontController extends HttpServlet {
 
 			break;
 
-		case "/user/checkIdOk.me":
-			System.out.println("checkId");
-			new CheckIdOkController().execute(request, response);
-
+		
+			
 		case "/user/findUserEmail.me":
 				request.getRequestDispatcher("/user/findId.jsp").forward(request, response);
 				System.out.println("이메일찾기");
@@ -120,8 +118,20 @@ public class UserFrontController extends HttpServlet {
 		case "/user/logoutOk.me":
 			System.out.println("logoutOk");
 			new LogoutController().execute(request,response);
-			
+			break;
+
+		case "/user/checkIdOk.me":
+			System.out.println("checkId");
+			new CheckIdOkController().execute(request, response);
+			break;
+		case "/user/checkPhoneOk.me":
+			System.out.println("checkPhone");
+			new CheckPhoneOkController().execute(request, response);
+			break;
+		
 		}
+		
+				
 		
 		
 		if (result != null) {

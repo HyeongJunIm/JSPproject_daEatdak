@@ -16,12 +16,14 @@ function pagination() {
     current_page = page;
     $(window).scrollTop(0);
     
-    if(total_num_li==0){
+    if(num_pages<=1){
 		$('.prev').hide();
 		$('.next').hide();
+		$('.page-num').hide();
 	}else {
 		$('.prev').show();
 		$('.next').show();
+		$('.page-num').show();
 	}
   }
 

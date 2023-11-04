@@ -158,7 +158,7 @@
                        	<li><h4>|</h4></li>
                        	<li><a href="${pageContext.request.contextPath}/goods/goodsList.go?categoryNum=3"><h4>소고기</h4></a></li>
                        	<li><h4>|</h4></li>
-                       	<li><a href="${pageContext.request.contextPath}/goods/goodsList.go?categoryNum=4"><h4>간편식 &dot; 음료</h4></a></li>     
+                       	<li><a href="${pageContext.request.contextPath}/goods/goodsList.go?categoryNum=4"><h4>간편식 음료</h4></a></li>     
                     </ul>
                 </nav>
             </div>
@@ -205,7 +205,7 @@
                        	<li><h4>|</h4></li>
                        	<li><a href="${pageContext.request.contextPath}/goods/goodsList.go?categoryNum=3"><h4>소고기</h4></a></li>
                        	<li><h4>|</h4></li>
-                       	<li><a href="${pageContext.request.contextPath}/goods/goodsList.go?categoryNum=4"><h4>간편식 &dot; 음료</h4></a></li>
+                       	<li><a href="${pageContext.request.contextPath}/goods/goodsList.go?categoryNum=4"><h4>간편식 음료</h4></a></li>
                         </ul>
                     </nav>
                 </div>

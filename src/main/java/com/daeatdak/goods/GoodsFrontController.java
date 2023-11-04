@@ -56,7 +56,6 @@ public class GoodsFrontController extends HttpServlet {
 		    	  
 		      case "/goods/searchList.go":
 		    	  new GoodsSearchListController().execute(request, response);
-		    	  request.getRequestDispatcher("/goods/GoodsSearchList.jsp").forward(request, response);
 		      	break;
 
 		      }

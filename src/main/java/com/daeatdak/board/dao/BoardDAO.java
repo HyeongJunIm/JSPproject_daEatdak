@@ -5,8 +5,9 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.daeatdak.board.dto.BoardDTO;
+import com.daeatdak.board.dto.BoardReplyDTO;
+import com.daeatdak.board.vo.BoardReplyListVO;
 import com.daeatdak.board.vo.BoardVO;
-import com.daeatdak.goods.dto.CartDTO;
 import com.mybatis.config.MyBatisConfig;
 
 public class BoardDAO {
@@ -66,6 +67,38 @@ public class BoardDAO {
 	public BoardVO selectMyInfo(int userNum) {
 	  return sqlSession.selectOne("board.selectMyInfo",userNum);
 	   }
+	
+	
+
+	//댓글 등록
+	public void insertReply(BoardReplyDTO boardReplyDTO) {
+		sqlSession.insert("board.insertReply", boardReplyDTO);
+	}
+	
+	//게시물 마다 댓글 조회
+	public List<BoardReplyListVO> selectAllReply(String string){
+		return sqlSession.selectList("board.selectAllReply", string);
+	}
+	
+	//댓글 삭제
+	public void deleteReply(int commentNum) {
+		sqlSession.delete("board.deleteReply", commentNum);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 

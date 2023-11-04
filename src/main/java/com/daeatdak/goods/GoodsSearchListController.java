@@ -12,6 +12,7 @@ import com.daeatdak.Execute;
 import com.daeatdak.Result;
 import com.daeatdak.goods.dao.GoodsDAO;
 import com.daeatdak.goods.dto.GoodsSearchDTO;
+import com.daeatdak.goods.vo.GoodsListByCategoryVO;
 import com.daeatdak.goods.vo.GoodsListBySearchVO;
 
 public class GoodsSearchListController implements Execute{
@@ -23,7 +24,8 @@ public class GoodsSearchListController implements Execute{
 		
 	      GoodsDAO goodsDAO = new GoodsDAO();
 	      GoodsSearchDTO goodsSearchDTO = new GoodsSearchDTO();
-	      
+	      Result result = new Result();
+
 	    String cate = request.getParameter("cate");
 		String keyword = request.getParameter("keyword");
 		
@@ -33,10 +35,15 @@ public class GoodsSearchListController implements Execute{
 		System.out.println(goodsSearchDTO.toString());
 		
 		
-		
+	
 			List<GoodsListBySearchVO> searchList = goodsDAO.searchGoodsList(goodsSearchDTO);
+			request.setAttribute("keyword", keyword);
 			request.setAttribute("searchList", searchList);
 			System.out.println(searchList.toString()+"===================");
+	    	request.getRequestDispatcher("/goods/GoodsSearchList.jsp").forward(request, response);
+		
+			
+
 			
 		
 		

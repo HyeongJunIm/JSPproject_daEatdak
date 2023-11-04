@@ -6,16 +6,22 @@ function loginName() {
 		var name = $("#userEmail").val();
 		var password = $("#userPassword").val();
 
-		if(name == "" || name == undefined) {
+		if(name == "" ) {
+						$(".loginX").css("display", "none");
+
 			$('.nameNull').css("display","block");
 			$('.nameNull').css("color","red");
 			$('.pwNull').css("display","none");
+
 			return false;
 
-		} else if(password == "" || password == undefined) {
+		} else if(password == "" ) {
+						$(".loginX").css("display", "none");
+
 			$('.pwNull').css("display","block");
 			$('.pwNull').css("color","red");
 			$('.nameNull').css("display","none");
+
 			return false;
 		} 
 		$(".loginX").css("color", "red");

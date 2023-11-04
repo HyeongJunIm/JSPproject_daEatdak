@@ -11,6 +11,8 @@ import com.daeatdak.goods.dto.CartItemDTO;
 import com.daeatdak.goods.dto.GoodsDTO;
 import com.daeatdak.goods.dto.GoodsImageDTO;
 import com.daeatdak.goods.dto.GoodsSearchDTO;
+import com.daeatdak.goods.vo.GoodsDetailInfoVO;
+import com.daeatdak.goods.vo.GoodsDetailVO;
 import com.daeatdak.goods.vo.GoodsListByCategoryVO;
 import com.daeatdak.goods.vo.GoodsListBySearchVO;
 import com.mybatis.config.MyBatisConfig;
@@ -74,4 +76,17 @@ public class GoodsDAO {
 	   public List<GoodsListBySearchVO> searchGoodsList(GoodsSearchDTO goodsSearchDTO){
 		   return sqlSession.selectList("goods.searchGoodsList", goodsSearchDTO);
 	   }
+	   
+	   
+	   
+	   public List<GoodsDetailVO> goodsDetailImage(int goodsNum) {
+		   return sqlSession.selectList("goods.goodsDetailImage", goodsNum);
+	   }
+	   
+	   public GoodsDetailInfoVO GoodsDetailInfo(int goodsNum) {
+		   return sqlSession.selectOne("goods.goodsDetailInfo", goodsNum);
+	   }
+	   
+	   
+	   
 }

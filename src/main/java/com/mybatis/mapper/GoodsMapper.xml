@@ -65,7 +65,26 @@
          on g.goods_num  = f.goods_num  
  		 where g.goods_name Like CONCAT('%', #{keyword}, '%')
    </select>
+   
+   
+   <select id="goodsDetailInfo" resultType="GoodsDetailInfoVO">
+   
+   		 select g.goods_num, c.category_num, g.goods_name,  g.goods_price,  g.goods_quantity, f.file_path, f.file_system_name
+         from goods g
+         join category c on g.category_num = c.category_num
+         join file f on f.goods_num = g.goods_num
+		 where g.goods_num = #{goodsNum}
+   
+   </select>
+   
+  <select id="goodsDetailImage" resultType="GoodsDetailVO">
   
+ 		select goods_detail_image_number, goods_detail_image_path, goods_detail_image_original_name, goods_detail_image_system_name, goods_num
+		from goods_detail_image 
+		where goods_num = #{goodsNum}
+		order by goods_detail_image_number DESC
+ 
+  </select>
    
    
    

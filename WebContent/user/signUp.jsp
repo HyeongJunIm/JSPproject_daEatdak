@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +15,7 @@
 
 <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/common/img/logoPic.png" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" ></script>
 
-<script src="${pageContext.request.contextPath}/resources/user/js/signUp.js" defer></script>
-<script src="${pageContext.request.contextPath}/resources/user/js/signUpAjax.js" defer></script>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -47,25 +45,42 @@
                <div class="signup-container">
                 <div class="signup-area">
                     <div class="signup-greeting">
-                        <strong class="txt">회원가입을 진행해주세요!</strong>
+                        <strong class="txt"><span class="logoTitle">다잇닭</span>에 오신 것을 환영합니다. <br> 
+                        					회원가입을 진행해주세요.</strong>
                     </div>
-                    <form id="login_form" name="login_form" action="joinOk.me" method="post" >
+                    <form id="login_form" name="login_form" action="joinOk.me" method="post" onsubmit='return aclick();'>
                             
                         <div class="input-text">    
-                            <input type="text" id="email" name="userEmail" placeholder="이메일 입력" maxlength="100" >
-                            <div class="checkId-result"></div>  
-                            <input type="text" name ="userName" id="name"  placeholder="이름 입력" maxlength="100" >
+                            <input type="text" id="email" name="userEmail" placeholder="이메일 입력" maxlength="100"  onkeyup="characterCheck(this)" />
+                             <label ><span class="id_available">사용 가능한 이메일입니다.</span></label>
+                              <label>
+                                 <span class="id_already">이미 가입된 이메일입니다. 다시 입력해 주세요.</span>
+                              </label>
+                               <label >
+                               	<span class="checkEmail-result">이메일 형식이 아닙니다.</span>
+                               </label>  
+                               
+                            <input type="text" name ="userName" id="name"  placeholder="이름 입력" maxlength="100" onkeyup="AllCharacterCheck(this)">
                                                  
-                            <input type="password" name ="userPassword" id="pw"  placeholder="비밀번호 입력" maxlength="100" >
-                            <input type="password" name="userPassword2" id="pw2" placeholder="비밀번호 확인" maxlength="100" style="margin-bottom: -2px;">&nbsp;<span id="check"></span>
+                            <input type="password" name ="userPassword" id="pw"  placeholder="비밀번호 입력" maxlength="100" oninput="checkPw()" >
+                                  <label class="labelPwNo">특수문자와 숫자를 포함한 8자 이상을 기입하세요.</label>
                             
-                            <input type="text" id="phonenumber" name="userPhone" placeholder="휴대폰 번호 입력" maxlength="100" >
-                            <input type="text" id="address" placeholder="주소 입력" name="userAddress" maxlength="100" style="width: 330px; margin-bottom: 20px;">
+                            
+                            <input type="password" name="userPassword2" id="pw2" placeholder="비밀번호 확인" maxlength="100"  style="margin-bottom: -2px;">&nbsp;<span id="check"></span>
+                                    <label class="PwChOk">사용 가능한 비밀번호입니다.</label>
+                                     <label class="labelPwCh infoLabel">비밀번호가 일치하지 않습니다.</label>
+                                                                        
+                            
+                            <input type="tel" id="phonenumber" name="userPhone" placeholder="휴대폰 번호 입력( - 제외)" maxlength="11" onkeyup="AllCharacterCheck(this)">
+                                       <label class="phone_alreday">휴대폰 번호 형식이 아닙니다.</label>
+                                                        <div class="checkPhone-result"></div>  
+                            
+                            <input type="text" id="address" placeholder="주소 입력" name="userAddress" maxlength="100" > 
                             <button type="button" id="PostCodeSearch" >주소찾기</button>
                             <input type="text" id="address_detail" name="userDetailAddress" placeholder="상세주소 입력" maxlength="100" >                            
                         </div>    
                         <div class="button-signup">
-                            <button class="sign-btn" disabled onclick="return join()">가입완료</button>             
+                            <button class="sign-btn">가입완료</button>             
                         </div>    
                     </form>                   
                 </div>
@@ -91,5 +106,11 @@
        <%@ include file="/footer.jsp" %>  <!--상대경로로 각 페이지마다 맞게 작성-->
 </div>
 
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" ></script>
+<script src="${pageContext.request.contextPath}/resources/user/js/signUp.js" ></script>
+<script src="${pageContext.request.contextPath}/resources/user/js/signUpAjax.js"></script>
 </body>
 </html>

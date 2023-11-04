@@ -33,7 +33,6 @@ public class JoinOkController implements Execute {
 		userDTO.setUserPhone(request.getParameter("userPhone"));
 
 		
-		System.out.println(userDTO);
 		
 		userDAO.join(userDTO);
 		users = userDAO.getSequence();
