@@ -59,8 +59,10 @@
 	<!-- 게스글을 수정하는 쿼리문 -->
 	<update id="update" parameterType="BoardVO">
 		update board
-		set board_name = #{boardName}, board_content =
-		#{boardContent},board_password = #{boardPassword} ,board_lock
+		set board_name =
+		#{boardName}, board_content =
+		#{boardContent},board_password =
+		#{boardPassword} ,board_lock
 		=#{boardLock}
 		where board_num = #{boardNum}
 	</update>
@@ -82,7 +84,8 @@
 
 	<select id="selectMyInfo" resultType="BoardVO"
 		parameterType="int">
-		select user_roll,user_num from users where user_num =#{userNum}
+		select user_roll,user_num from users where user_num
+		=#{userNum}
 	</select>
 
 
@@ -100,15 +103,19 @@
 	<!--댓글 등록 -->
 	<insert id="insertReply">
 
-		insert into comments(user_num, board_num, comment_content )
+		insert into comments(user_num, board_num,
+		comment_content )
 		values (#{userNum}, #{boardNum},#{commentContent} )
 
 	</insert>
 
-	<select id="selectAllReply" resultType="BoardReplyDTO">
-		select comment_num, board_num, u.user_num, u.user_name, comment_content
+	<select id="selectAllReply" resultType="BoardReplyListVO">
+		select comment_num, board_num, u.user_num, u.user_name, comment_content,
+		u.user_roll
 		from comments c join users u on u.user_num = c.user_num
 		where board_num = #{boardNum}
+		order by comment_num DESC
+
 
 
 	</select>

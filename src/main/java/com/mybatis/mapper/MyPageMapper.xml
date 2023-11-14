@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myPage">
+
+	<select id="selectUserPassword" resultType="String">
+
+		select user_password
+		from users u
+		where user_email =#{userEmail}
+
+
+	</select>
+
+
+	<select id="selectUserInfo" resultType="UserVO">
+
+		select u.user_num,
+		user_name, user_email, user_phone, a.address,
+		a.detail_address
+		from
+		users u join address a on u.user_num = a.user_num
+		where u.user_num =
+		#{userNum}
+
+	</select>
+
+
+	<update id="updateUserInfo" parameterType="UserUpdateVO">
+		UPDATE users
+		SET
+		user_password = #{userPassword}
+		WHERE user_num = #{userNum}
+	</update>
+
+	<update id="updateUserAddress" parameterType="UserUpdateVO">
+
+		Update address
+		set
+		address=#{address}, detail_address = #{detailAddress}
+		where user_num =
+		#{userNum}
+
+	</update>
+
+
+
+
+
+
+
+
+	<!-- <select id="selectCartList" resultType="MyPageWishListVO"> select u.user_num, 
+		cart_item_num, c.cart_num, g.goods_num, goods_name, goods_price, c2.category_num, 
+		c2.category_name, f.file_path, f.file_system_name from cart_item ci join 
+		goods g on ci.goods_num =g.goods_num join category c2 on g.category_num =c2.category_num 
+		join cart c on ci.cart_num =c.cart_num join users u on c.user_num =u.user_num 
+		join file f on g.goods_num =f.goods_num where u.user_num =#{userNum} </select> 
+		<delete id="deleteList"> delete from cart_item where cart_item_num = #{cartItemNum} 
+		</delete> -->
+
+
+	<insert id="insertWishList">
+
+
+		INSERT INTO wishlist (user_num,
+		goods_num)
+		SELECT
+		u.user_num, #{goodsNum}
+		FROM users u
+		LEFT JOIN wishlist w ON u.user_num
+		= w.user_num AND w.goods_num =
+		#{goodsNum}
+		WHERE u.user_num = #{userNum}
+		and w.wishlist_num is null;
+
+	</insert>
+
+
+	<select id="selectWishList" resultType="MyPageWishListVO">
+
+		select u.user_num,
+		wishlist_num, g.goods_num, goods_name, goods_price,
+		c.category_num,
+		c.category_name, f.file_path, f.file_system_name
+		from wishlist w join
+		goods g on w.goods_num =g.goods_num
+		join category c on g.category_num
+		=c.category_num
+		join file f on g.goods_num =f.goods_num
+		join users u on
+		u.user_num =w.user_num
+		where u.user_num =#{userNum}
+
+
+	</select>
+
+	<delete id="deleteWishList">
+
+		delete from wishlist
+		where wishlist_num = #{wishlistNum}
+
+	</delete>
+
+
+
+	<select id="productList" resultType="MyPageDTO">
+		select
+		w.user_num,
+		w.goods_num,
+		g.goods_name,
+		g.goods_price
+		from
+		wishlist w, goods g
+		where
+		w.goods_num = g.goods_num and w.user_num =2 ;
+	</select>
+
+
+</mapper>

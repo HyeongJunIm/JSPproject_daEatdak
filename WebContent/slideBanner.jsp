@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,22 +21,46 @@
                 </div>
             </div>
             <div class="float-user-menu">
+            	<c:choose>
+				<c:when test = "${empty sessionScope.userRoll}">
                 <ul>
+                 
                     <li>
-                        <a href="${pageContext.request.contextPath}/board/boardList.jsp">
+                        <a href="${pageContext.request.contextPath}/board/boardListOk.bo">
                             <span class="material-symbols-outlined">
                                 support_agent
                             </span>
                         </a>
                     </li>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/goods/GoodsContainCart.jsp">
+                    <li class="empty-banner-session">
+                        <a href="${pageContext.request.contextPath}/user/login.me">
                             <span class="material-symbols-outlined">
                                 shopping_cart
                             </span>
                         </a>
                     </li>
                 </ul>
+                </c:when>
+                <c:when test="${sessionScope.userRoll == 0}">
+                  <ul>
+                 
+                    <li>
+                        <a href="${pageContext.request.contextPath}/board/boardListOk.bo">
+                            <span class="material-symbols-outlined">
+                                support_agent
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/goods/CartList.go?userNum=${sessionScope.userNum}">
+                            <span class="material-symbols-outlined">
+                                shopping_cart
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                </c:when>
+                </c:choose>
         	</div>
         <div class="float-button">
             <button class="top-button" >TOP</button>

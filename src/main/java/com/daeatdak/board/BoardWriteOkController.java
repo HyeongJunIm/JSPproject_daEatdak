@@ -49,7 +49,7 @@ public class BoardWriteOkController implements Execute{
 		System.out.println("컨트롤러 실행!");
 //		request.getRequestDispatcher("/board/boardList.jsp").forward(request, response);
 		
-		response.sendRedirect("/jsp_daEatdak/board/boardListOk.bo");
+		response.sendRedirect("/board/boardListOk.bo");
 	
 		return null;
 	}

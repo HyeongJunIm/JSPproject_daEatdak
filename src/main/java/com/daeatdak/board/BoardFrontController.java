@@ -111,15 +111,18 @@ public class BoardFrontController extends HttpServlet {
 			
 		case "/board/boardReplyOk.bo":
 			System.out.println("댓글 정보 가져오기");
-
 			new BoardReplyOkController().execute(request, response);
 			System.out.println("댓글 정보 가져오기 성공");
 			break;
-		case "/board/getBoardReply.bo":
+			
+		case "/board/boardReplyList.bo":
 			new BoardReplyListController().execute(request, response);
-			System.out.println("댓글 넘기기 성공");
 			break;
 			
+		case "/board/boardReplyDelete.bo":
+			new BoardReplyDeleteController().execute(request, response);
+			break;
+
 		}
 	}
 	

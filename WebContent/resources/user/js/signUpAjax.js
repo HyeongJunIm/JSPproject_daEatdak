@@ -19,7 +19,7 @@ let checkEmail = function() {
 					if (emailCheck) {
 						$('.id_already').css('display', 'none');
 						$('.id_available').css('display', 'block');
-					}else{
+					} else {
 						$('.checkEmail-result').css('display', 'block')
 						$('.id_already').css('display', 'none');
 						$('.id_available').css('display', 'none');
@@ -27,10 +27,10 @@ let checkEmail = function() {
 					}
 
 				} else if (result == 1) {
-					
-						$('.id_already').css('display', 'block');
-						$('.id_available').css('display', 'none');
-						return;
+
+					$('.id_already').css('display', 'block');
+					$('.id_available').css('display', 'none');
+					return;
 
 				}
 			}
@@ -39,15 +39,13 @@ let checkEmail = function() {
 	});
 }
 $('#email').on('change', checkEmail());
-
+$('.checkPhone-result').css('display', 'none');
+$('.checkPhone-result-blank').css('display', 'none')
+$('.checkPhone-result-unavailable').css('display', 'none')
 
 let checkPhone = function() {
 	$('#phonenumber').on('change', function() {
 		let phone = $("#phonenumber").val();
-
-		$('.checkPhone-result').text("");
-
-
 
 		$.ajax({
 
@@ -58,18 +56,28 @@ let checkPhone = function() {
 			},
 			success: function(resultPhone) {
 				if (resultPhone == 0) {
-					$('.checkPhone-result').text('사용 가능한 전화번호입니다.');
+					$('.checkPhone-result').css('display', 'block');
+					$('.checkPhone-result-blank').css('display', 'none')
+					$('.checkPhone-result-unavailable').css('display', 'none')
 					if (phone == '') {
-						$('.checkPhone-result').text("");
+						$('.checkPhone-result').css('display', 'none');
+						$('.checkPhone-result-blank').css('display', 'block')
+						$('.checkPhone-result-unavailable').css('display', 'none')
 
 					} else if (phone.length < 10) {
-						$('.checkPhone-result').text('');
+						$('.checkPhone-result').css('display', 'none');
+						$('.checkPhone-result-blank').css('display', 'block')
+						$('.checkPhone-result-unavailable').css('display', 'none')
 
 					}
 				} else if (resultPhone == 1) {
-					$('.checkPhone-result').text('이미 가입된 전화번호입니다.');
+					$('.checkPhone-result').css('display', 'none');
+					$('.checkPhone-result-blank').css('display', 'none')
+					$('.checkPhone-result-unavailable').css('display', 'block')
 					if (phone == '') {
-						$('.checkPhone-result').text("");
+						$('.checkPhone-result').css('display', 'none');
+						$('.checkPhone-result-blank').css('display', 'block')
+						$('.checkPhone-result-unavailable').css('display', 'none')
 
 					}
 				}

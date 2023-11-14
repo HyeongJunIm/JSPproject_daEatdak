@@ -1,30 +1,112 @@
-function check_pw(){
-    var pw = document.getElementById('configPW').value;
-    var check_SC = 0;
 
 
-    if(document.getElementById('configPW').value !='' && document.getElementById('configPW2').value!=''){
-        if(document.getElementById('configPW').value==document.getElementById('configPW2').value){
-            document.getElementById('check').innerHTML='비밀번호가 일치합니다.'
-            document.getElementById('check').style.color='blue';
-        }
-        else{
-            document.getElementById('check').innerHTML='비밀번호가 일치하지 않습니다.';
-            document.getElementById('check').style.color='red';
-        }
-    }
+function modifyUserINfo() {
+	$('.updateBtn').on('click', function() {
+
+		let pwCh = $("#configPW").val();
+		let pwCh2 = $("#configPW2").val();
+
+
+
+
+		if ($('.labelPwNo').css('display') == 'block') {
+			alert("비밀번호 양식을 확인해주세요");
+			return false;
+		}
+
+
+		if ($('.labelPwCh').css('display') == 'block') {
+			alert("비밀번호 일치 여부를 다시 확인해주세요.");
+			return false;
+		}
+
+		if (!(pwCh && pwCh2 && userAddress && userAddressDetail)) {
+
+			alert("모든 정보를 입력해주세요")
+			return false;
+		}
+		$('#myPageForm').submit();
+		return true;
+
+	})
 }
 
-function selectEmail(ele){
-    var $ele = $(ele);
-    var $email2 = $('input[name=email2]');
+$('document').ready(function() {
+	modifyUserINfo();
+})
 
-    // '1'인 경우 직접입력
-    if($ele.val() == "1"){
-        $email2.attr('readonly', false);
-        $email2.val('');
-    } else {
-        $email2.attr('readonly', true);
-        $email2.val($ele.val());
-    }
+
+window.onload = function() {
+
+	document.getElementById("PostCodeSearch").onclick = function PostCodeSearch() {
+		new daum.Postcode({
+			oncomplete: function(data) {
+				console.log(data);
+				document.querySelector('#address').value = data.roadAddress;
+			}
+		}).open();
+	}
 }
+
+
+
+$('.PwChOk').css('display', 'none');
+$('.labelPwNo').css("display", "none");
+
+
+function checkPw() {
+
+	let pw = $("#configPW").val();
+	let reg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*()_=+])(?=.*[0-9]).{8,15}$/;
+
+	let pwCheck = reg.test(pw);
+
+	$('#configPW').on('keyup', function() {
+
+		if (pwCheck) {
+			$('.labelPwNo').css("display", "none");
+			$('.PwChOk').css('display', 'block');
+		} else {
+			$('.labelPwNo').css("display", "block");
+			$('.PwChOk').css('display', 'none');
+		}
+	});
+}
+
+
+$('#configPW2').keyup(function() {
+
+
+	let pw = $("#configPW").val();
+	let pwCh = $("#configPW2").val();
+
+	if (pw != pwCh) {
+		$('.labelPwCh').css('display', 'block');
+		$('.labelEm').css('display', 'none');
+		// $('.PwChOk').css('display', 'none');
+		return;
+	} else {
+		// $('.PwChOk').css('display', 'block');
+		$('.labelPwCh').css('display', 'none');
+	}
+
+});
+
+
+$('.deleteBtn').on('click', function() {
+
+	let userNum = $('.deleteBtn').data('usernum');
+	console.log(userNum)
+
+	if(confirm("탈퇴하시겠습니까?")){
+		alert("탈퇴 처리 되었습니다.")
+		location.href="/user/deleteUser.me?userNum=" + userNum;
+	}else {
+		
+	}
+
+
+
+})
+
+

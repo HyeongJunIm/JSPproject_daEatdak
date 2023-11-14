@@ -63,5 +63,12 @@
 		join address a on u.user_num = a.user_num
   
    </select>
+   
+   <delete id="deleteUser">
+
+		delete from users
+		where user_num = #{userNum}
+		
+	</delete>
      
 </mapper>

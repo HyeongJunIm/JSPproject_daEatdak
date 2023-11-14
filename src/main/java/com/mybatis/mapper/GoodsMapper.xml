@@ -1,96 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="goods">
-  <select id ="selectCategory" resultType ="GoodsDTO" parameterType="_int">
-  		select * from goods where category_num = #{categoryNum}
-  </select>
-  <select id ="selectImage" resultType="GoodsImageDTO" parameterType="_int">
-  		select * from file
-  </select>
-    <select id ="selectImageByGoodsNum" resultType="GoodsImageDTO" parameterType="_int">
-  		select * from file where goods_num = #{goodsNum}
-  </select>
-  <select id ="selectGoodsNum" resultType="GoodsDTO" parameterType="_int">
-  		select * from goods where goods_num = #{goodsNum}
-  </select>
-  <select id ="selectCart" resultType="CartDTO" parameterType="int">
-  		select * from cart where user_num =#{userNum}
-  </select>
-  <insert id ="createCart" parameterType="CartDTO">
-  	insert into cart (user_num)
-  				value(#{userNum})
-  </insert>
-  <insert id="cartItemInsert" parameterType="CartItemDTO">
-        INSERT INTO cart_item (cart_num, goods_num)
-        SELECT c.cart_num, #{goodsNum}
-        FROM cart c
-        LEFT JOIN cart_item ci ON c.cart_num = ci.cart_num AND ci.goods_num = #{goodsNum}
-        WHERE c.user_num = #{userNum}
-        AND ci.cart_item_num IS NULL;
-   </insert>
-   
-   <select id ="selectMyCart"  resultType="CartDTO" parameterType="_int">
-   		select * from cart where user_num = #{userNum}
-   </select>
-   
-   <select id = "selectItemByCartNum" resultType="CartItemDTO" parameterType="_int">
-   		select * from cart_item where cart_num = #{cartNum}
-   </select>
-   
-   <select id ="selectCartItems" resultType="GoodsDTO" parameterType="_int">
-   		SELECT g.*
+	<select id="selectCategory" resultType="GoodsDTO"
+		parameterType="_int">
+		select * from goods where category_num = #{categoryNum}
+	</select>
+	<select id="selectImage" resultType="GoodsImageDTO"
+		parameterType="_int">
+		select * from file
+	</select>
+	<select id="selectImageByGoodsNum" resultType="GoodsImageDTO"
+		parameterType="_int">
+		select * from file where goods_num = #{goodsNum}
+	</select>
+	<select id="selectGoodsNum" resultType="GoodsDTO"
+		parameterType="_int">
+		select * from goods where goods_num = #{goodsNum}
+	</select>
+	<select id="selectCart" resultType="CartDTO" parameterType="int">
+		select * from cart where user_num =#{userNum}
+	</select>
+	<insert id="createCart" parameterType="CartDTO">
+		insert into cart
+		(user_num)
+		value(#{userNum})
+	</insert>
+	<insert id="cartItemInsert" parameterType="CartItemDTO">
+		INSERT INTO cart_item
+		(cart_num, goods_num)
+		SELECT c.cart_num, #{goodsNum}
+		FROM cart c
+		LEFT
+		JOIN cart_item ci ON c.cart_num = ci.cart_num AND ci.goods_num =
+		#{goodsNum}
+		WHERE c.user_num = #{userNum}
+		AND ci.cart_item_num IS NULL;
+	</insert>
+
+	<select id="selectMyCart" resultType="CartDTO"
+		parameterType="_int">
+		select * from cart where user_num = #{userNum}
+	</select>
+
+	<select id="selectItemByCartNum" resultType="CartItemVO"
+		parameterType="_int">
+	select cart_item_num, cart_num, c.goods_num, g.goods_name, g.goods_price,  f.file_path, f.file_system_name
+				from cart_item c join file f on c.goods_num = f.goods_num 
+								join goods g on c.goods_num = g.goods_num 
+				where cart_num = ${cartNum}
+	</select>
+
+	<select id="selectCartItems" resultType="GoodsDTO"
+		parameterType="_int">
+		SELECT g.*
 		FROM cart_item ci
-		INNER JOIN goods g ON ci.goods_num = g.goods_num
+		INNER JOIN goods g ON
+		ci.goods_num = g.goods_num
 		WHERE ci.cart_num = #{cartNum};
-   </select>
-   
-   
-   <select id="goodsListByCategory" parameterType="_int" resultType="GoodsListByCategoryVO">
-   
-   		select g.goods_num, c.category_num,c.category_name, g.goods_name,  g.goods_price,  g.goods_quantity, f.file_path, f.file_system_name 
-         from goods g
-         join category c on g.category_num = c.category_num
-         join file f on g.goods_num  = f.goods_num  
-		 where c.category_num = #{categoryNum}
-   
-   </select>
-   
-   <select id="searchGoodsList" resultType="GoodsListBySearchVO">
-   
-   		 select g.goods_num, c.category_num,c.category_name, g.goods_name,  g.goods_price,  g.goods_quantity, f.file_path, f.file_system_name 
-         from goods g
-         join category c 
-         on g.category_num = c.category_num
-         join file f 
-         on g.goods_num  = f.goods_num  
- 		 where g.goods_name Like CONCAT('%', #{keyword}, '%')
-   </select>
-   
-   
-   <select id="goodsDetailInfo" resultType="GoodsDetailInfoVO">
-   
-   		 select g.goods_num, c.category_num, g.goods_name,  g.goods_price,  g.goods_quantity, f.file_path, f.file_system_name
-         from goods g
-         join category c on g.category_num = c.category_num
-         join file f on f.goods_num = g.goods_num
-		 where g.goods_num = #{goodsNum}
-   
-   </select>
-   
-  <select id="goodsDetailImage" resultType="GoodsDetailVO">
-  
- 		select goods_detail_image_number, goods_detail_image_path, goods_detail_image_original_name, goods_detail_image_system_name, goods_num
-		from goods_detail_image 
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<select id="goodsListByCategory" parameterType="_int"
+		resultType="GoodsListByCategoryVO">
+
+		select g.goods_num, c.category_num,c.category_name,
+		g.goods_name,
+		g.goods_price, g.goods_quantity, f.file_path,
+		f.file_system_name
+		from goods g
+		join category c on g.category_num =
+		c.category_num
+		join file f on g.goods_num = f.goods_num
+		where
+		c.category_num = #{categoryNum}
+
+	</select>
+
+	<select id="searchGoodsList" resultType="GoodsListBySearchVO">
+
+		select g.goods_num,
+		c.category_num,c.category_name, g.goods_name,
+		g.goods_price,
+		g.goods_quantity, f.file_path, f.file_system_name
+		from goods g
+		join
+		category c
+		on g.category_num = c.category_num
+		join file f
+		on g.goods_num
+		= f.goods_num
+		where g.goods_name Like CONCAT('%', #{keyword}, '%')
+	</select>
+
+
+	<select id="goodsDetailInfo" resultType="GoodsDetailInfoVO">
+
+		select g.goods_num,
+		c.category_num, g.goods_name, g.goods_price,
+		g.goods_quantity,
+		f.file_path, f.file_system_name
+		from goods g
+		join category c on
+		g.category_num = c.category_num
+		join file f on f.goods_num =
+		g.goods_num
+		where g.goods_num = #{goodsNum}
+
+	</select>
+
+	<select id="goodsDetailImage" resultType="GoodsDetailVO">
+
+		select
+		goods_detail_image_number, goods_detail_image_path,
+		goods_detail_image_original_name, goods_detail_image_system_name,
+		goods_num
+		from goods_detail_image
 		where goods_num = #{goodsNum}
-		order by goods_detail_image_number DESC
- 
-  </select>
-   
-   
-   
-   
-   
-   
-   
-   
+		order by
+		goods_detail_image_number DESC
+
+	</select>
+
+
+
+	<select id="selectWishToCart" resultType="_int">
+		select count(goods_num)
+		from cart_item ci join cart c
+		on ci.cart_num = c.cart_num
+		where
+		ci.goods_num =#{goodsNum}
+
+	</select>
+
+
+
+
+
+
 </mapper>

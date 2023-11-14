@@ -11,14 +11,8 @@
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/goods/js/GoodsCartPage.js?ver=12" defer></script>
 
-<c:choose>
-	<c:when test="${empty itemList }">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/goods/css/CartEmpty.css" type="text/css"/>
-	</c:when>
-	<c:otherwise>
+
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/goods/css/CartList.css" type="text/css"/>
-	</c:otherwise>
-</c:choose>
 <title>장바구니 페이지</title>
 </head>
 <body>
@@ -70,11 +64,12 @@
                         </div>    
                         <div class="cart-input">
                             <form action="/goods/cart.go" method="post">    
+                            
                                 <ul class="goods">
                                 <c:forEach var ="cart" items="${cartList}">
                                     <li class="cart-goods">
                                     
-                                    	<c:set var ="imagePath" value=""/>
+                                  <%--   	<c:set var ="imagePath" value=""/>
                         					<c:forEach var = "image" items ="${goodsImages}">
                         						<c:if test="${image.getGoodsNum()==cart.getGoodsNum()}">
                         							<c:set var ="imagePath" value ="${image.getGoodsImg() }"/>
@@ -82,15 +77,13 @@
                         					</c:forEach>
                         				<c:if test ="${empty imagePath}">
                         					<c:set var="imagePath" value="resources/goods/img/Default.png"/>
-                        				</c:if>
+                        				</c:if>  --%>
                                     
                                         <div class="checkbox-area">
-                                                <input type="checkbox" name="selectedItems" class="term">
+                                                <input type="checkbox" name="selectedItems" class="term" value="${cart.goodsNum }">
                                         </div>
                                         <div class="img-area">
-                                                <figure>
-                                                    <img src="${pageContext.request.contextPath}/${imagePath}">
-                                                </figure>
+                                                    <img src="${pageContext.request.contextPath}/upload/${cart.fileSystemName}">
                                         </div>
                                         <div class="goods-text-area">
                                                 <span>${cart.getGoodsName()}</span>
@@ -114,7 +107,7 @@
                                 </ul> 
                          	<input type ="text" id="totalPriceInput" name ="totalPrice" readonly/>  
                         	<div class="product-order">
-                            	<span>주문하기</span>
+                            	<button type="button">주문하기</button>
                         	</div>
                       	</form>
                         </div>

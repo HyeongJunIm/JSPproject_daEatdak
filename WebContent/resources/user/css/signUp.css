@@ -139,15 +139,30 @@
 }
 
 
-.checkPhone-result {
+.checkPhone-result, .checkPhone-result-unavailable {
 	position: absolute;
 	left: 5px;
 	font-family: 'KIMM_Bold';
-	color: #CA2E2E;
 	bottom: 143px;
 	font-size: 11px;
 		font-weight:bold;
 	
+}
+.checkPhone-result{
+		color: #0080ff;
+	
+}
+.checkPhone-result-unavailable{
+		color: #CA2E2E;
+	
+}
+.phone_alreday {
+position: absolute;
+    bottom: 142px;
+    font-family: 'KIMM_Bold';
+    color: #CA2E2E;
+    font-size: 11px;
+    right: 0;
 }
 
 .PwChOk {

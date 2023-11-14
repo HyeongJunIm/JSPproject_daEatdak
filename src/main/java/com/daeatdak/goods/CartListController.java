@@ -16,6 +16,7 @@ import com.daeatdak.goods.dto.CartDTO;
 import com.daeatdak.goods.dto.CartItemDTO;
 import com.daeatdak.goods.dto.GoodsDTO;
 import com.daeatdak.goods.dto.GoodsImageDTO;
+import com.daeatdak.goods.vo.CartItemVO;
 
 public class CartListController implements Execute{
 
@@ -26,25 +27,26 @@ public class CartListController implements Execute{
 		GoodsDAO goodsDAO = new GoodsDAO();
 		CartDTO cartDTO = new CartDTO();
 		GoodsDTO goodsDTO = new GoodsDTO();
-		GoodsImageDTO goodsImageDTO = new GoodsImageDTO();
+//		GoodsImageDTO goodsImageDTO = new GoodsImageDTO();
 		CartItemDTO cartItemDTO = new CartItemDTO();
+		
+		CartItemVO cartItemVO = new CartItemVO();
 
 		Integer userNum = (Integer) session.getAttribute("userNum");		
 		System.out.println(userNum);
 		cartDTO = goodsDAO.selectMyCart(userNum);
 		
-		List<CartItemDTO> cartItems = goodsDAO.selectItemByCartNum(cartDTO.getCartNum());
+		List<CartItemVO> cartItems = goodsDAO.selectItemByCartNum(cartDTO.getCartNum());
 		
-		request.setAttribute("itemList",goodsDAO.selectItemByCartNum(cartDTO.getCartNum()));
+		request.setAttribute("cartList",cartItems);
 		
-		System.out.println(cartItems);
+		System.out.println("cartList : " + cartItems);
 		System.out.println("----");
-		System.out.println(session.getAttribute("itemList"));
 		
 	      
-	    request.setAttribute("cartList", goodsDAO.selectCartItems(cartDTO.getCartNum()));
-	    request.setAttribute("goodsImages", goodsDAO.selectImage());
-	    System.out.println(session.getAttribute("cartList"));
+//	    request.setAttribute("cartList", goodsDAO.selectCartItems(cartDTO.getCartNum()));
+//	    request.setAttribute("goodsImages", goodsDAO.selectImage());
+//	    System.out.println(session.getAttribute("cartList"));
 		request.getRequestDispatcher("/goods/CartList.jsp").forward(request, response);
 		return null;
 	}

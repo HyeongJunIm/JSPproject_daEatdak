@@ -6,7 +6,6 @@ public class UserDTO {
 	private String userName;
 	private String userPassword;
 	private String userPhone;
-
 	private String userRoll;
 
 	public String getUserRoll() {

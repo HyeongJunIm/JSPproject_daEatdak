@@ -7,6 +7,7 @@ public class BoardReplyListVO {
 	private String userNum;
 	private String userName;
 	private String commentContent;
+	private Integer userRoll;
 
 	public int getCommentNum() {
 		return commentNum;
@@ -32,6 +33,16 @@ public class BoardReplyListVO {
 	public void setUserNum(String userNum) {
 		this.userNum = userNum;
 	}
+	
+	
+
+	public Integer getUserRoll() {
+		return userRoll;
+	}
+
+	public void setUserRoll(Integer userRoll) {
+		this.userRoll = userRoll;
+	}
 
 	public String getUserName() {
 		return userName;
@@ -52,7 +63,9 @@ public class BoardReplyListVO {
 	@Override
 	public String toString() {
 		return "BoardReplyListVO [commentNum=" + commentNum + ", boardNum=" + boardNum + ", userNum=" + userNum
-				+ ", userName=" + userName + ", commentContent=" + commentContent + "]";
+				+ ", userName=" + userName + ", commentContent=" + commentContent + ", userRoll=" + userRoll + "]";
 	}
+
+	
 
 }

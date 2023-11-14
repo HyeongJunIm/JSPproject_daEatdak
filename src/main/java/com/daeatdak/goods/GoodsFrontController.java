@@ -54,6 +54,15 @@ public class GoodsFrontController extends HttpServlet {
 		    	  new CartListController().execute(request, response);
 		    	  break;
 		    	  
+		      case "/goods/toWishlist.go":
+		    	  new AddToWishlistController().execute(request, response);
+		    	  break;
+		    	  
+		    	  
+		    	  
+		    	  
+		    	  
+		    	  
 		      case "/goods/searchList.go":
 		    	  new GoodsSearchListController().execute(request, response);
 		      	break;

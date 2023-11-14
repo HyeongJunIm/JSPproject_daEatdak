@@ -28,12 +28,12 @@ a{
 }
 
 .sidemenu{
+	
     width: 190px;
     height: 90%;
     min-height: 530px;
     margin: 10px;
     padding: 10px;
-    border: 1px solid #E6E6E6;
 }
 
 
@@ -43,33 +43,39 @@ a{
     justify-content: center;
     background-color: #fff;
     width: 100%;
-    height: 60px;
-    border-top: 1px solid #eee;
+    height: 50px;
     margin-bottom: 10px; 
 }
 
 .side-item:first-child{
-    border:none;
+    border: none;
 }
 
 .content-text{
-    font-size: 23px;
+		    font-family: 'GmarketSansMedium';
+	
+    font-size: 17px;
     margin : 0 auto 0;
 }
 
 .content-text.on{
     color: rgb(202, 46, 46);
 }
+
 .myPage-title{
+		
     display: flex;
     width: 300px;
     height: 70px;
+    align-items:center;
+    color: rgb(202, 56, 46);
 }
 
 .title-text{
-    font-size: 30px;
-    margin-left:30px;
-    color: rgb(202, 56, 46);
+	font-family: 'KIMM_Bold';
+	
+	font-size:22px;
+    margin-left:30px
 }
 
 .myPage-main{
@@ -106,7 +112,6 @@ a{
 }
 
 .product-img-box{
-    border: 1px solid black;
     width: 200px;
     height: 140px;
     margin: 5px 0 0 5px;
@@ -133,9 +138,13 @@ a{
 }
 
 .cart-btn{
+		font-family: 'GmarketSansMedium';
+	border-radius:9px;
     border: none;
     padding: 0 5px;
     background-color: rgb(202, 46, 46);
     color: white;
     margin-left: 10px;
+    height:25px;
+    cursor:pointer;
 }

@@ -73,7 +73,9 @@
                             
                             <input type="tel" id="phonenumber" name="userPhone" placeholder="휴대폰 번호 입력( - 제외)" maxlength="11" onkeyup="AllCharacterCheck(this)">
                                        <label class="phone_alreday">휴대폰 번호 형식이 아닙니다.</label>
-                                                        <div class="checkPhone-result"></div>  
+                                                        <div class="checkPhone-result">사용 가능한 전화번호입니다.</div>  
+                                                        <div class="checkPhone-result-blank"></div>  
+                                                        <div class="checkPhone-result-unavailable">이미 가입된 전화번호입니다.</div>  
                             
                             <input type="text" id="address" placeholder="주소 입력" name="userAddress" maxlength="100" > 
                             <button type="button" id="PostCodeSearch" >주소찾기</button>

@@ -59,6 +59,17 @@
   	<url-pattern>*.co</url-pattern>
   </servlet-mapping>
   
+  
+  
+	<!-- 마이페이지 -->
+   <servlet>
+  	<servlet-name>MyPage</servlet-name>
+  	<servlet-class>com.daeatdak.myPage.MyPageFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MyPage</servlet-name>
+  	<url-pattern>*.mp</url-pattern>
+  </servlet-mapping>
 </web-app>
 
 

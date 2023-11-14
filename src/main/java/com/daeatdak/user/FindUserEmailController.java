@@ -32,7 +32,8 @@ public class FindUserEmailController implements Execute {
 			userDTO = userDAO.findUserEmailByName(userDTO);
 			
 			if(userDTO == null) {
-				response.sendRedirect("/user/findUserEmail.me");
+				request.setAttribute("findFailed", true);
+	            request.getRequestDispatcher("/user/findId.jsp").forward(request, response);
 			}else {
 				request.setAttribute("userName", userName);
 				request.setAttribute("userEmail", userDTO.getUserEmail());

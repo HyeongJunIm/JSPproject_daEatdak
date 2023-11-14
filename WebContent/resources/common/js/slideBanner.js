@@ -29,3 +29,8 @@ function move(){
 setInterval(move, 3000);
 
 
+$('.empty-banner-session').on('click', function(){
+	
+	alert("로그인이 필요합니다.");
+	
+})

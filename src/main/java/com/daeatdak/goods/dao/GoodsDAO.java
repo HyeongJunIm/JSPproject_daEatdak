@@ -7,10 +7,10 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import com.daeatdak.goods.dto.CartDTO;
-import com.daeatdak.goods.dto.CartItemDTO;
 import com.daeatdak.goods.dto.GoodsDTO;
 import com.daeatdak.goods.dto.GoodsImageDTO;
 import com.daeatdak.goods.dto.GoodsSearchDTO;
+import com.daeatdak.goods.vo.CartItemVO;
 import com.daeatdak.goods.vo.GoodsDetailInfoVO;
 import com.daeatdak.goods.vo.GoodsDetailVO;
 import com.daeatdak.goods.vo.GoodsListByCategoryVO;
@@ -59,7 +59,7 @@ public class GoodsDAO {
 		   return sqlSession.selectOne("goods.selectMyCart",userNum);
 	   }
 	   
-	   public List<CartItemDTO> selectItemByCartNum(int cartNum){
+	   public List<CartItemVO> selectItemByCartNum(int cartNum){
 		   return sqlSession.selectList("goods.selectItemByCartNum",cartNum);
 	   }
 	   
@@ -88,5 +88,8 @@ public class GoodsDAO {
 	   }
 	   
 	   
-	   
+	   //장바구니 중복검사
+	   public int selectWishToCart(int goodsNum) {
+		   return sqlSession.selectOne("goods.selectWishToCart", goodsNum);
+	   }
 }

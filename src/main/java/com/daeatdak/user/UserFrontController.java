@@ -129,6 +129,10 @@ public class UserFrontController extends HttpServlet {
 			new CheckPhoneOkController().execute(request, response);
 			break;
 		
+		//회원탈퇴
+		case "/user/deleteUser.me":
+			new UserDeleteController().execute(request, response);
+			break;
 		}
 		
 				

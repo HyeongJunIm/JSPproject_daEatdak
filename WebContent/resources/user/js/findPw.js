@@ -1,27 +1,36 @@
 /**
  * 
  */
-
+$('.inputEmail').css('display', 'none');
+$('.inputName').css('display', 'none');
+$('.inputPhone').css('display', 'none');
 function findPw() {
 
 
 	$('.submit-btn').click(function() {
 
-	let email = $('#userEmail').val();
-	let name = $('#userName').val();
-	let phone = $('#userPhone').val();
-	
-	
+		let email = $('#userEmail').val();
+		let name = $('#userName').val();
+		let phone = $('#userPhone').val();
+
+
 		if (email == "") {
-						alert("이메일 누락")
+
+			$('.inputEmail').css('display', 'block');
+			$('.inputName').css('display', 'none');
+			$('.inputPhone').css('display', 'none');
 
 			return false;
 		} else if (name == "") {
-						alert("이름 누락")
+			$('.inputEmail').css('display', 'none');
+			$('.inputName').css('display', 'block');
+			$('.inputPhone').css('display', 'none');
 
 			return false;
 		} else if (phone == "") {
-						alert("전화번호 누락")
+			$('.inputEmail').css('display', 'none');
+			$('.inputName').css('display', 'none');
+			$('.inputPhone').css('display', 'block');
 
 			return false;
 		}
@@ -30,7 +39,7 @@ function findPw() {
 	});
 }
 
-$('document').ready(function(){
+$('document').ready(function() {
 	findPw();
 })
 

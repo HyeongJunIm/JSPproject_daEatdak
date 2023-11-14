@@ -49,7 +49,8 @@
 				<div class="pwfind-container">
 					<div class="pwfind-area">
 						<div class="pwfind-greeting">
-							<strong class="txt">비밀번호 찾기</strong>
+							<strong class="txt">비밀번호 찾기<br></strong>
+							<span class="txt2">회원 정보를 입력하시면 비밀번호를 찾으실 수 있습니다.</span>
 						</div>
 						<form id="findpw_form" name="findpw_form"
 							action="findUserPasswordOk.me" method="post" onsubmit='return aclick();'>
@@ -58,14 +59,23 @@
 									<input type="text" placeholder="이메일 입력" name="userEmail" id="userEmail" maxlength="100">
 									<input type="text" placeholder="이름 입력" name="userName" id="userName" maxlength="100">
 									<input type="tel" placeholder="휴대폰 번호 입력 ( - 제외)" name="userPhone" id="userPhone" maxlength="11">
+									<label >
+											<span class="inputEmail checkInfo">이메일을 입력해주세요.</span>
+									</label>
+									<label >
+											<span class="inputName checkInfo">이름을 입력해주세요.</span>
+									</label>
+									<label >
+											<span class="inputPhone checkInfo">전화번호를 입력해주세요.</span>
+									</label>
 									<c:choose>
 									<c:when test="${findFailed}">
-									<label>
-											입력하신 정보를 다시 확인해주세요. 일치하는 정보가 존재하지 않습니다.
+									<label >
+											<span class="checkInfo" >입력하신 정보를 다시 확인해주세요. 일치하는 정보가 존재하지 않습니다.</span>
 									</label>
 									</c:when>
 									<c:otherwise>
-									<label></label>
+									<label><span></span></label>
 									</c:otherwise>
 									</c:choose>
 								</div>

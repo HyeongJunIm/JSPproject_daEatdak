@@ -56,7 +56,7 @@
                             <h6>문의하기</h6>
                         </a>
                     </li>
-                    <li>
+                    <li class="empty-session">
                         <a href="${pageContext.request.contextPath}/user/login.me">
                             <span class="material-symbols-outlined">
                                 shopping_cart
@@ -78,7 +78,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/user/Ok.me">
+                        <a href="${pageContext.request.contextPath}/myPage/myPageMainOk.mp">
                             <span class="material-symbols-outlined">
 							person
 							</span>

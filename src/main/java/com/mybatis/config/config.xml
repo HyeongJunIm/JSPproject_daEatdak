@@ -33,6 +33,8 @@
 		<typeAlias type="com.daeatdak.board.vo.BoardReplyListVO"
 			alias="BoardReplyListVO" />
 		<typeAlias type="com.daeatdak.user.vo.UserVO" alias="UserVO" />
+		<typeAlias type="com.daeatdak.user.vo.UserUpdateVO"
+			alias="UserUpdateVO" />
 		<typeAlias type="com.daeatdak.common.dto.CommonDTO"
 			alias="CommonDTO" />
 		<typeAlias type="com.daeatdak.goods.dto.CartDTO"
@@ -52,9 +54,16 @@
 			alias="GoodsListBySearchVO" />
 		<typeAlias type="com.daeatdak.goods.vo.GoodsDetailVO"
 			alias="GoodsDetailVO" />
+		<typeAlias type="com.daeatdak.goods.vo.CartItemVO"
+			alias="CartItemVO" />
 		<typeAlias type="com.daeatdak.goods.vo.GoodsDetailInfoVO"
 			alias="GoodsDetailInfoVO" />
-
+		<typeAlias type="com.daeatdak.myPage.dto.MyPageDTO"
+			alias="MyPageDTO" />
+		<typeAlias type="com.daeatdak.myPage.vo.MyPageWishListVO"
+			alias="MyPageWishListVO" />
+		<typeAlias type="com.daeatdak.myPage.dto.WishlistDTO"
+			alias="WishlistDTO" />
 	</typeAliases>
 
 
@@ -80,6 +89,7 @@
 		<mapper resource="com/mybatis/mapper/GoodsMapper.xml"></mapper>
 		<mapper resource="com/mybatis/mapper/BoardMapper.xml"></mapper>
 		<mapper resource="com/mybatis/mapper/CommonMapper.xml"></mapper>
+		<mapper resource="com/mybatis/mapper/MyPageMapper.xml"></mapper>
 	</mappers>
 
 </configuration>

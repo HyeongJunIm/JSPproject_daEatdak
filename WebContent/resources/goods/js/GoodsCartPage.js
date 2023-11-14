@@ -16,6 +16,8 @@ $all.on('click', function(){
     }
 });
 
+
+
 $inputs.on('click', function(){
     if(!$(this).is(":checked")){
         $all.prop('checked', false);
@@ -24,11 +26,14 @@ $inputs.on('click', function(){
         $all.prop('checked', true);
     }
 });
-/*
-buttons.addEventListener('click', function(){
+
+/*buttons.addEventListener('click', function(){
     let checkedInputs = document.querySelectorAll('.term:checked');
     
     if (checkedInputs.length > 0) {
+		
+		
+		
         alert("상품이 삭제되었습니다.");
         
         checkedInputs.forEach(function(input){
@@ -38,9 +43,17 @@ buttons.addEventListener('click', function(){
     } else {
         alert("선택된 상품이 없습니다.");
     }
-});*/
+});
+
+*/
+
+$('.term').on('click', function(){
+	let goodsNum = $('.term').val();
+	console.log(goodsNum);
+})
+
 // 주문하기 마우스 오버,아웃 이벤트
-let productorders=document.querySelector('.product-order span');
+let productorders=document.querySelector('.product-order button');
 
 productorders.addEventListener('mouseover',function(){
 	productorders.style.color="white";
@@ -97,6 +110,7 @@ function updateTotalPrice() {
             var itemPrice = parseInt($(this).find(".cartItemPrice").val());
             var itemCount = parseInt($(this).find(".count").text().trim());
             total += itemPrice * itemCount;
+            
         }
     });
 

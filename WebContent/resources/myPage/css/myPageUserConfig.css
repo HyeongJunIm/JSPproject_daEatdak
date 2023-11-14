@@ -28,12 +28,12 @@ a{
 }
 
 .sidemenu{
+	
     width: 190px;
     height: 90%;
     min-height: 530px;
     margin: 10px;
     padding: 10px;
-    border: 1px solid #E6E6E6;
 }
 
 
@@ -43,8 +43,7 @@ a{
     justify-content: center;
     background-color: #fff;
     width: 100%;
-    height: 60px;
-    border-top: 1px solid #eee;
+    height: 50px;
     margin-bottom: 10px; 
 }
 
@@ -53,7 +52,9 @@ a{
 }
 
 .content-text{
-    font-size: 23px;
+		    font-family: 'GmarketSansMedium';
+	
+    font-size: 17px;
     margin : 0 auto 0;
 }
 
@@ -61,15 +62,23 @@ a{
     color: rgb(202, 46, 46);
 }
 
+
+
+
+
 .myPage-title{
+		
     display: flex;
     width: 300px;
     height: 70px;
+    align-items:center;
     color: rgb(202, 56, 46);
 }
 
 .title-text{
-    font-size: 30px;
+	font-family: 'KIMM_Bold';
+	
+	font-size:22px;
     margin-left:30px
 }
 
@@ -98,7 +107,7 @@ a{
 }
 .myPage-main-contents{
     width: 93%;
-    min-height: 610px;
+    min-height: 525px;
     height: 100%;
     border-top:2px solid rgb(202, 56, 46);
     margin: 0 auto;
@@ -110,7 +119,7 @@ a{
     display: flex;
     flex-direction: column;
     margin: 10px 0 0 10px;
-    width: 93%;
+    width: 100%;
     height: 100%;
 }
 
@@ -127,9 +136,15 @@ a{
 .box > input{
     border: 1px solid #e6e6e6;
     height: 28px;
+    padding-left:10px;
+    box-sizing:border-box;
 }
 
-
+.input-title {
+    font-family: 'GmarketSansMedium';
+		font-size:13px
+	
+} 
 
 .box.address{
     display: flex;
@@ -184,9 +199,9 @@ a{
 }
 
 .box.address>input{
-    margin-top: 10px;
-    width: 355px;
-    margin-left: 137px;
+        margin-top: 10px;
+    width: 370px;
+    margin-left: 134px;
     border: 1px solid #e6e6e6;
     height: 300px;
     padding: 3px 0;
@@ -199,6 +214,8 @@ a{
 }
 
 .address-btn{
+		font-family: 'KIMM_Bold';
+	
     margin-top: 10px;
     height: 28px;
     color: white;
@@ -207,4 +224,70 @@ a{
     cursor: pointer;
     border-radius: 10%;
     background-color: rgb(202, 46, 46);
+    font-size:12px
+}
+.labelPwNo, .PwChOk, .labelPwCh{
+	font-family: 'KIMM_Bold';
+	padding-left:10px;
+	font-size:12px
+	
+	
+}
+.labelPwNo{
+	color :rgb(202, 46, 46)
+}
+.PwChOk{
+			color: #0080ff;
+	
+}
+.labelPwCh{
+	color :rgb(202, 46, 46)
+	
+}
+.update{
+	    
+	width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.updateBtn{
+			font-family: 'KIMM_Bold';
+	
+	border:0px;
+	border-radius:10px;
+	background-color: rgb(202, 46, 46);
+	color:white;
+	width: 130px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    letter-spacing: 6px;
+	
+}
+.delete {
+	width: 100%;
+    display: flex;
+    justify-content: end;
+    padding:70px 20px 0px 0px;
+}
+
+.deleteBtn{
+    font-family: 'GmarketSansMedium';
+	
+	border:1px solid gray;
+	border-radius:10px;
+	background-color: white;
+	color:black;
+	width: 130px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    letter-spacing: 6px;
+	
 }

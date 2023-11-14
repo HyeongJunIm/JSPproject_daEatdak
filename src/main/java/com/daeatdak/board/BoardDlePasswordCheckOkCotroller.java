@@ -29,7 +29,11 @@ public class BoardDlePasswordCheckOkCotroller implements Execute{
 		System.out.println(boardVO.getBoardPassword());
 		String boardPassword=request.getParameter("boardPassword");
 		System.out.println(boardPassword);
+		
+		
 		if(boardVO.getBoardPassword().equals(boardPassword)) {
+			
+			
 			boardDAO.delate(boardNum);
 			System.out.println("삭제완료!");
 			request.getRequestDispatcher("/board/boardListOk.bo").forward(request, response);

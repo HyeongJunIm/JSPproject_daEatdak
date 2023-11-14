@@ -27,8 +27,8 @@ public class AddToCartController implements Execute{
 		int goodsNum = Integer.parseInt(request.getParameter("goodsNum"));
 		Integer userNum = (Integer) session.getAttribute("userNum");
 		
-		System.out.println(goodsNum);
-		System.out.println(userNum);
+		
+	
 		
 		goodsDAO.insertCartItem(userNum,goodsNum);
 		
