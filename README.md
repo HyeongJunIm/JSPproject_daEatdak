@@ -4,6 +4,7 @@ JSP - MyBatis 프로젝트
 ## 🕰️ 목적
 * 첫 목적은 컨트롤러 등을 통해 페이지와 데이터 이동 등을 확인하기 위한 간단한 프로젝트였다.
 * 그 때문에 한 달이라는 시간이 흘렀음에도 페이지들은 내가 직접 짜놓은 HTML과 CSS만 덜렁있었을 뿐이었고 초기에 계획했엇던 ERD를 바탕으로 혼자 프로젝트를 진행하였다.
+* 약 1주일 간 개인적으로 진행하였고 장바구니 물품 삭제, 결제 등은 미완성 상태이다.
 
 <br>
 
@@ -26,7 +27,8 @@ JSP - MyBatis 프로젝트
 
 ### 📌포트폴리오 
 
-[산책할개_포트폴리오.pdf](https://github.com/bokkaa/JPA-DW/files/14415033/_.pdf)
+[DaEatdak.pdf](https://github.com/bokkaa/JSP-daEatdak/files/14491662/DaEatdak.pdf)
+
 
 ## 📌 내가 맡은 기능
 #### 메인 페이지 <a href="https://github.com/bokkaa/JSPproject_daEatdak/wiki/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80" >상세보기 - WIKI 이동</a>
