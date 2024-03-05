@@ -29,7 +29,7 @@ JSP - MyBatis 프로젝트
 [산책할개_포트폴리오.pdf](https://github.com/bokkaa/JPA-DW/files/14415033/_.pdf)
 
 ## 📌 내가 맡은 기능
-#### 메인 페이지 <a href="https://github.com/bokkaa/JPA-DW/wiki/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80" >상세보기 - WIKI 이동</a>
+#### 메인 페이지 <a href="https://github.com/bokkaa/JSPproject_daEatdak/wiki/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80" >상세보기 - WIKI 이동</a>
 - 카테고리별 상품 목록
 - 최근 등롣된 상품
 
