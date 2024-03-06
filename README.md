@@ -61,6 +61,11 @@ JSP - MyBatis 프로젝트
 - 찜 목록 상품 장바구니 담기
 - 찜 삭제
 
+#### 관리자페이지 상품 <a href="https://github.com/bokkaa/JSP-daEatdak/wiki/%EA%B4%80%EB%A6%AC%EC%9E%90-%ED%8E%98%EC%9D%B4%EC%A7%80---%EC%83%81%ED%92%88" >상세보기 - WIKI 이동</a>
+- 상품 목록
+- 상품 등록
+- 상품 수정 및 삭제
+
 <hr>
 
 
