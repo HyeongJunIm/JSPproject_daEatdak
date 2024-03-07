@@ -14,18 +14,16 @@ JSP - MyBatis 프로젝트
 - **Library** : MyBatis
 - **Database** : Oracle DB(11xe)
 
-### 📌포트폴리오 
-
-[DaEatdak.pdf](https://github.com/bokkaa/JSP-daEatdak/files/14491662/DaEatdak.pdf)
+### 📌포트폴리오
 
 
 ## 📌 내가 맡은 기능
 #### 문의게시판
 - 게시글 목록 <a href="https://github.com/HyeongJunIm/JSPproject_daEatdak/wiki/%EA%B2%8C%EC%8B%9C%EA%B8%80-%EB%AA%A9%EB%A1%9D" >상세보기 - WIKI 이동</a>
-- 게시글 작성 <a href="https://github.com/bokkaa/JSPproject_daEatdak/wiki/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80" >상세보기 - WIKI 이동</a>
-- 게시글 상세보기 <a href="https://github.com/bokkaa/JSPproject_daEatdak/wiki/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80" >상세보기 - WIKI 이동</a>
-- 게시글 수정 삭제 <a href="https://github.com/bokkaa/JSPproject_daEatdak/wiki/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80" >상세보기 - WIKI 이동</a>
-- 게시글 댓글 <a href="https://github.com/bokkaa/JSPproject_daEatdak/wiki/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80" >상세보기 - WIKI 이동</a>
+- 게시글 작성 <a href="https://github.com/HyeongJunIm/JSPproject_daEatdak/wiki/%EA%B2%8C%EC%8B%9C%EA%B8%80-%EC%9E%91%EC%84%B1" >상세보기 - WIKI 이동</a>
+- 게시글 상세보기 <a href="https://github.com/HyeongJunIm/JSPproject_daEatdak/wiki/%EA%B2%8C%EC%8B%9C%ED%8C%90-%EC%83%81%EC%84%B8-%EB%B3%B4%EA%B8%B0" >상세보기 - WIKI 이동</a>
+- 게시글 수정 삭제 <a href="https://github.com/HyeongJunIm/JSPproject_daEatdak/wiki/%EA%B2%8C%EC%8B%9C%EA%B8%80-%EC%88%98%EC%A0%95%2C-%EC%82%AD%EC%A0%9C" >상세보기 - WIKI 이동</a>
+- 게시글 댓글 <a href="https://github.com/HyeongJunIm/JSPproject_daEatdak/wiki/%EA%B2%8C%EC%8B%9C%EA%B8%80-%EB%8C%93%EA%B8%80" >상세보기 - WIKI 이동</a>
 
 
 ## 📌느낀점
