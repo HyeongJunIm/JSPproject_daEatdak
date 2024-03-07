@@ -15,6 +15,7 @@ JSP - MyBatis 프로젝트
 - **Database** : Oracle DB(11xe)
 
 ### 📌포트폴리오
+[DaEatdak_project.pdf](https://github.com/HyeongJunIm/JSPproject_daEatdak/files/14518085/DaEatdak_project.pdf)
 
 
 ## 📌 내가 맡은 기능
