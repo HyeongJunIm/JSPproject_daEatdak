@@ -12,7 +12,7 @@ JSP - MyBatis 프로젝트
 ### ⚙️ 개발 환경
 - **IDE** : Eclipse
 - **Library** : MyBatis
-- **Database** : Oracle DB(11xe)
+- **Database** : Mysql
 
 ### 📌포트폴리오
 [DaEatdak_project.pdf](https://github.com/HyeongJunIm/JSPproject_daEatdak/files/14518085/DaEatdak_project.pdf)
