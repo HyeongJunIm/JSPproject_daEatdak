@@ -20,8 +20,8 @@ JSP - MyBatis 프로젝트
 
 
 ## 📌 내가 맡은 기능
-#### 문의게시판 <a href="https://github.com/bokkaa/JSPproject_daEatdak/wiki/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80" >상세보기 - WIKI 이동</a>
-- 게시글 목록 <a href="https://github.com/bokkaa/JSPproject_daEatdak/wiki/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80" >상세보기 - WIKI 이동</a>
+#### 문의게시판
+- 게시글 목록 <a href="https://github.com/HyeongJunIm/JSPproject_daEatdak/wiki/%EA%B2%8C%EC%8B%9C%EA%B8%80-%EB%AA%A9%EB%A1%9D" >상세보기 - WIKI 이동</a>
 - 게시글 작성 <a href="https://github.com/bokkaa/JSPproject_daEatdak/wiki/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80" >상세보기 - WIKI 이동</a>
 - 게시글 상세보기 <a href="https://github.com/bokkaa/JSPproject_daEatdak/wiki/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80" >상세보기 - WIKI 이동</a>
 - 게시글 수정 삭제 <a href="https://github.com/bokkaa/JSPproject_daEatdak/wiki/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80" >상세보기 - WIKI 이동</a>
